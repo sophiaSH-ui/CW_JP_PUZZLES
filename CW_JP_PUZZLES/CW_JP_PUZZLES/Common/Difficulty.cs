@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CW_JP_PUZZLES.Common
 {
-    internal class Difficulty
+    public enum Difficulty
     {
+        Easy,
+        Medium,
+        Hard,
+        Expert
     }
 }
