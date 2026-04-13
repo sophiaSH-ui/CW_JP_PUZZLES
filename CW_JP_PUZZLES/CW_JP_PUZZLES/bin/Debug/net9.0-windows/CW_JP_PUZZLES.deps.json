@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "CW_JP_PUZZLES/1.0.0": {
+        "runtime": {
+          "CW_JP_PUZZLES.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CW_JP_PUZZLES/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
