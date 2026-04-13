@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CW_JP_PUZZLES.Core.Cells
 {
-    internal class ShikakuCell
+    public class ShikakuCell : CellBase
     {
+        public int ClueValue { get; set; } = -1; 
+        public int RegionId { get; set; } = -1; 
+        public override void Reset() { RegionId = -1; }
     }
 }
