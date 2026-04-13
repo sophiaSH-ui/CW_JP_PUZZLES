@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CW_JP_PUZZLES")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be285a898110be57fff06dcbe20bf3f66806f74a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efd7f693e00dbbc1ef38a7a7301511af0fd27db3")]
 [assembly: System.Reflection.AssemblyProductAttribute("CW_JP_PUZZLES")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CW_JP_PUZZLES")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
