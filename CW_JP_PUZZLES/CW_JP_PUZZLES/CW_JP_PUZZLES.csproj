@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Games\Nurikabe\" />
-    <Folder Include="Games\Shikaku\" />
   </ItemGroup>
 
 </Project>
