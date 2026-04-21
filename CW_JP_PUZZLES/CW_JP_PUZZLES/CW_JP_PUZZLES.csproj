@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Games\Hitori\" />
     <Folder Include="Games\Nurikabe\" />
     <Folder Include="Games\Shikaku\" />
   </ItemGroup>
