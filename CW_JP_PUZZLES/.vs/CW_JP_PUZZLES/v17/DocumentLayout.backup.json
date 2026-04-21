@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\akari\\akarisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\akari\\akarisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\akari\\akarigame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\akari\\akarigame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -55,10 +59,6 @@
       "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\common\\difficulty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\akari\\akarisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\akari\\akarisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\akari\\akarigenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\akari\\akarigenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -94,17 +94,17 @@
       "DocumentGroups": [
         {
           "DockedHeight": 74,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 0,
               "Title": "AkariSolver.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Akari\\AkariSolver.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Games\\Akari\\AkariSolver.cs",
               "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Akari\\AkariSolver.cs",
               "RelativeToolTip": "CW_JP_PUZZLES\\Games\\Akari\\AkariSolver.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-21T19:50:58.188Z",
               "EditorCaption": ""
@@ -123,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AkariGame.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Akari\\AkariGame.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Games\\Akari\\AkariGame.cs",
@@ -136,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GameConfig.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Models\\GameConfig.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Models\\GameConfig.cs",
@@ -144,12 +144,11 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Models\\GameConfig.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T20:25:53.889Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T20:25:53.889Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "IGame.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\Interfaces\\IGame.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Core\\Interfaces\\IGame.cs",
@@ -157,8 +156,7 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Core\\Interfaces\\IGame.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-21T19:33:03.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-21T19:33:03.888Z"
             },
             {
               "$type": "Document",
@@ -174,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "GridManager.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Common\\GridManager.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Common\\GridManager.cs",
@@ -182,12 +180,11 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Common\\GridManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:26:03.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:26:03.621Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "GameResult.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Common\\GameResult.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Common\\GameResult.cs",
@@ -195,12 +192,11 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Common\\GameResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:25:55.526Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:25:55.526Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "GameTimer.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Common\\GameTimer.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Common\\GameTimer.cs",
@@ -208,12 +204,11 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Common\\GameTimer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:25:43.171Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:25:43.171Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Difficulty.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Common\\Difficulty.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Common\\Difficulty.cs",
@@ -221,12 +216,11 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Common\\Difficulty.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:25:24.41Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:25:24.41Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PuzzleBase.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\PuzzleBase.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Core\\PuzzleBase.cs",
@@ -234,12 +228,11 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Core\\PuzzleBase.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAmwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:02:22.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:02:22.367Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "NurikabeCell.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\Cells\\NurikabeCell.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Core\\Cells\\NurikabeCell.cs",
@@ -247,8 +240,7 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Core\\Cells\\NurikabeCell.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:02:09.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:02:09.09Z"
             },
             {
               "$type": "Document",
@@ -264,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "HitoriCell.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\Cells\\HitoriCell.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Core\\Cells\\HitoriCell.cs",
@@ -272,12 +264,11 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Core\\Cells\\HitoriCell.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:01:32.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:01:32.75Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "AkariCell.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\Cells\\AkariCell.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Core\\Cells\\AkariCell.cs",
@@ -285,8 +276,7 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Core\\Cells\\AkariCell.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:01:24.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:01:24.557Z"
             },
             {
               "$type": "Document",
@@ -302,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IGenerator.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\Interfaces\\IGenerator.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Core\\Interfaces\\IGenerator.cs",
@@ -310,12 +300,11 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Core\\Interfaces\\IGenerator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T18:01:03.892Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T18:01:03.892Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CellBase.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\Cells\\CellBase.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Core\\Cells\\CellBase.cs",
@@ -323,8 +312,7 @@
               "RelativeToolTip": "CW_JP_PUZZLES\\Core\\Cells\\CellBase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:52:11.368Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T17:52:11.368Z"
             },
             {
               "$type": "Document",
