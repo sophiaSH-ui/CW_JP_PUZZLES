@@ -14,5 +14,11 @@ namespace CW_JP_PUZZLES.Models
 
         // version btw
         public string Version { get; set; } = "1.0.0";
+
+
+        public bool IsMusicEnabled { get; set; } = true;
+        public bool IsSfxEnabled { get; set; } = true;
+        public float MusicVolume { get; set; } = 0.4f;
+        public float SfxVolume { get; set; } = 0.8f;
     }
 }
