@@ -56,33 +56,143 @@
         <Border Grid.Row="1"
                 BorderBrush="{StaticResource BrushBlueShadow}"
                 BorderThickness="3"
+                Width="452"
+                Height="452"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 SnapsToDevicePixels="True">
-            <ItemsControl ItemsSource="{Binding Cells}">
+
+            <ItemsControl ItemsSource="{Binding Cells}"
+                          Width="448"
+                          Height="448">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Rows="{Binding GridSize}"
-                                     Columns="{Binding GridSize}"/>
+                        <UniformGrid Rows="7"
+                                     Columns="7"
+                                     Width="448"
+                                     Height="448"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Width" Value="64"/>
+                        <Setter Property="Height" Value="64"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="{x:Type vm:CellViewModel}">
-                        <ContentControl Content="{Binding}">
-                            <ContentControl.ContentTemplate>
-                                <DataTemplate>
-                                    <Button DataContext="{Binding}"
-                                            Command="{Binding LeftClickCommand}"
-                                            Tag="{Binding RightClickCommand}">
-                                        <Button.InputBindings>
-                                            <MouseBinding MouseAction="RightClick"
-                                                          Command="{Binding RightClickCommand}"/>
-                                        </Button.InputBindings>
-                                    </Button>
-                                </DataTemplate>
-                            </ContentControl.ContentTemplate>
-                        </ContentControl>
+                        <Button Width="64"
+                                Height="64"
+                                Command="{Binding LeftClickCommand}"
+                                SnapsToDevicePixels="True">
+                            <Button.InputBindings>
+                                <MouseBinding MouseAction="RightClick"
+                                              Command="{Binding RightClickCommand}"/>
+                            </Button.InputBindings>
+
+                            <Grid>
+                                <Ellipse Width="36" Height="36"
+                                         Fill="{StaticResource BrushGold}"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center">
+                                    <Ellipse.Style>
+                                        <Style TargetType="Ellipse">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding HasBulb}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Ellipse.Style>
+                                </Ellipse>
+
+                                <Ellipse Width="52" Height="52"
+                                         Stroke="{StaticResource BrushGold}"
+                                         StrokeThickness="3"
+                                         Fill="Transparent"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center">
+                                    <Ellipse.Style>
+                                        <Style TargetType="Ellipse">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsCircled}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Ellipse.Style>
+                                </Ellipse>
+
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="16"
+                                           FontFamily="Resources/Fonts/#Press Start 2P"
+                                           Foreground="{StaticResource BrushCream}">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Text" Value="{Binding DisplayValue}"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ClueValue}" Value="">
+                                                    <Setter Property="Text" Value="{Binding DisplayValue}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsWall}" Value="True">
+                                                    <Setter Property="Text" Value="{Binding WallNumberText}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="{StaticResource BrushBgCell}"/>
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border x:Name="Root"
+                                                        Background="{TemplateBinding Background}"
+                                                        BorderBrush="{StaticResource BrushBorder}"
+                                                        BorderThickness="2"
+                                                        SnapsToDevicePixels="True">
+                                                    <ContentPresenter HorizontalAlignment="Center"
+                                                                      VerticalAlignment="Center"/>
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <DataTrigger Binding="{Binding IsIlluminated}" Value="True">
+                                                        <Setter TargetName="Root" Property="Background"
+                                                                Value="{StaticResource BrushBlueShadow}"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding IsWall}" Value="True">
+                                                        <Setter TargetName="Root" Property="Background"
+                                                                Value="{StaticResource BrushDarkBrown}"/>
+                                                        <Setter TargetName="Root" Property="BorderBrush"
+                                                                Value="{StaticResource BrushBorderBright}"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding IsBlackened}" Value="True">
+                                                        <Setter TargetName="Root" Property="Background"
+                                                                Value="{StaticResource BrushDarkBrown}"/>
+                                                    </DataTrigger>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="Root" Property="BorderBrush"
+                                                                Value="{StaticResource BrushPink}"/>
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter TargetName="Root" Property="Background"
+                                                                Value="{StaticResource BrushPurple}"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
@@ -93,8 +203,17 @@
                 BorderBrush="{StaticResource BrushPurple}"
                 BorderThickness="2"
                 Margin="0 16 0 0"
-                Padding="12 8"
-                Visibility="{Binding IsHintVisible, Converter={StaticResource BoolToVis}}">
+                Padding="12 8">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsHintVisible}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
             <TextBlock Text="{Binding HintText}"
                        FontFamily="Resources/Fonts/#Press Start 2P"
                        FontSize="8"

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP
 F:\курсова_2курс_2семестр\CW_JP_PUZZLES\CW_JP_PUZZLES\CW_JP_PUZZLES\App.xaml
-8-2001719150
+9-1684720886
 
-52-896077408
+50-1759201902
 201668129756
-MainWindow.xaml;Resources\Styles\ButtonStyles.xaml;Resources\Styles\CellStyles.xaml;Resources\Styles\PixelColors.xaml;UI\Views\GameBoardView.xaml;UI\Views\MainMenuView.xaml;UI\Views\ResultView.xaml;UI\Views\SettingsView.xaml;
+MainWindow.xaml;Resources\Styles\ButtonStyles.xaml;Resources\Styles\CellStyles.xaml;Resources\Styles\PixelColors.xaml;UI\Views\DifficultyView.xaml;UI\Views\GameBoardView.xaml;UI\Views\MainMenuView.xaml;UI\Views\ResultView.xaml;UI\Views\SettingsView.xaml;
 
 False
 

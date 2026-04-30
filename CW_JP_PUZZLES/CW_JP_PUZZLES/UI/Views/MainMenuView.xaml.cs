@@ -12,16 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using System.Windows.Controls;
+
 namespace CW_JP_PUZZLES.UI.Views
 {
-    /// <summary>
-    /// Interaction logic for MainMenuView.xaml
-    /// </summary>
-    public partial class MainMenuView : Window
+    public partial class MainMenuView : UserControl
     {
-        public MainMenuView()
-        {
-            InitializeComponent();
-        }
+        public MainMenuView() => InitializeComponent();
     }
 }

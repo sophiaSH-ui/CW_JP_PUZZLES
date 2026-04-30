@@ -7,7 +7,6 @@
         MinWidth="700" MinHeight="760"
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource BrushBgDeep}"
-        RenderOptions.BitmapScalingMode="NearestNeighbor"
         SnapsToDevicePixels="True">
 
     <Window.DataContext>

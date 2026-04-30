@@ -12,16 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using System.Windows.Controls;
+
 namespace CW_JP_PUZZLES.UI.Views
 {
-    /// <summary>
-    /// Interaction logic for GameBoardView.xaml
-    /// </summary>
-    public partial class GameBoardView : Window
+    public partial class GameBoardView : UserControl
     {
-        public GameBoardView()
-        {
-            InitializeComponent();
-        }
+        public GameBoardView() => InitializeComponent();
     }
 }

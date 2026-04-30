@@ -12,16 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using System.Windows.Controls;
+
 namespace CW_JP_PUZZLES.UI.Views
 {
-    /// <summary>
-    /// Interaction logic for SettingsView.xaml
-    /// </summary>
-    public partial class SettingsView : Window
+    public partial class SettingsView : UserControl
     {
-        public SettingsView()
-        {
-            InitializeComponent();
-        }
+        public SettingsView() => InitializeComponent();
     }
 }
