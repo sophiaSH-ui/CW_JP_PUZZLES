@@ -1,0 +1,181 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:CW_JP_PUZZLES.UI.ViewModels">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="PixelColors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+
+    <Style x:Key="AkariCellStyle" TargetType="Button">
+        <Setter Property="Width"           Value="64"/>
+        <Setter Property="Height"          Value="64"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush"     Value="{StaticResource BrushBorder}"/>
+        <Setter Property="Background"      Value="{StaticResource BrushBgCell}"/>
+        <Setter Property="Cursor"          Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Root"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True">
+                        <Grid>
+                            <Ellipse x:Name="Bulb"
+                                     Width="36" Height="36"
+                                     Fill="{StaticResource BrushGold}"
+                                     Visibility="Collapsed"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center"/>
+                            <TextBlock x:Name="WallNum"
+                                       FontFamily="Resources/Fonts/#Press Start 2P"
+                                       FontSize="16"
+                                       Foreground="{StaticResource BrushCream}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Visibility="Collapsed"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsIlluminated}" Value="True">
+                            <Setter TargetName="Root" Property="Background">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="#FF3D5080" Opacity="0.85"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding HasBulb}" Value="True">
+                            <Setter TargetName="Bulb" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsWall}" Value="True">
+                            <Setter TargetName="Root" Property="Background"
+                                    Value="{StaticResource BrushDarkBrown}"/>
+                            <Setter TargetName="Root" Property="BorderBrush"
+                                    Value="{StaticResource BrushBorderBright}"/>
+                            <Setter TargetName="WallNum" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="HitoriCellStyle" TargetType="Button">
+        <Setter Property="Width"           Value="64"/>
+        <Setter Property="Height"          Value="64"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush"     Value="{StaticResource BrushBorder}"/>
+        <Setter Property="Background"      Value="{StaticResource BrushBgCell}"/>
+        <Setter Property="Cursor"          Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Root"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True">
+                        <Grid>
+                            <TextBlock x:Name="Val"
+                                       Text="{Binding DisplayValue}"
+                                       FontFamily="Resources/Fonts/#Press Start 2P"
+                                       FontSize="18"
+                                       Foreground="{StaticResource BrushCream}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <Ellipse x:Name="Circle"
+                                     Width="52" Height="52"
+                                     Stroke="{StaticResource BrushGold}"
+                                     StrokeThickness="3"
+                                     Fill="Transparent"
+                                     Visibility="Collapsed"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsBlackened}" Value="True">
+                            <Setter TargetName="Root" Property="Background"
+                                    Value="{StaticResource BrushDarkBrown}"/>
+                            <Setter TargetName="Val" Property="Foreground"
+                                    Value="{StaticResource BrushTextDim}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsCircled}" Value="True">
+                            <Setter TargetName="Circle" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ShikakuCellStyle" TargetType="Button">
+        <Setter Property="Width"           Value="64"/>
+        <Setter Property="Height"          Value="64"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush"     Value="{StaticResource BrushBorder}"/>
+        <Setter Property="Background"      Value="{StaticResource BrushBgCell}"/>
+        <Setter Property="Cursor"          Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Root"
+                            Background="{Binding RegionColor}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True">
+                        <TextBlock x:Name="Clue"
+                                   Text="{Binding ClueValue}"
+                                   FontFamily="Resources/Fonts/#Press Start 2P"
+                                   FontSize="18"
+                                   Foreground="{StaticResource BrushCream}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontWeight="Bold"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="NurikabeCellStyle" TargetType="Button">
+        <Setter Property="Width"           Value="64"/>
+        <Setter Property="Height"          Value="64"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush"     Value="{StaticResource BrushBorder}"/>
+        <Setter Property="Background"      Value="{StaticResource BrushBgCell}"/>
+        <Setter Property="Cursor"          Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Root"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True">
+                        <TextBlock x:Name="Clue"
+                                   Text="{Binding ClueValue}"
+                                   FontFamily="Resources/Fonts/#Press Start 2P"
+                                   FontSize="18"
+                                   Foreground="{StaticResource BrushCream}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontWeight="Bold"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsBlackened}" Value="True">
+                            <Setter TargetName="Root" Property="Background"
+                                    Value="{StaticResource BrushDarkBrown}"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="CW_JP_PUZZLES.UI.Views.ResultView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{StaticResource BrushBgDeep}">
+
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+        <TextBlock Text="{Binding ResultMessage}"
+                   FontFamily="Resources/Fonts/#Press Start 2P"
+                   FontSize="22"
+                   Foreground="{StaticResource BrushGold}"
+                   HorizontalAlignment="Center"/>
+
+        <TextBlock Text="{Binding ResultSubMessage}"
+                   FontFamily="Resources/Fonts/#Press Start 2P"
+                   FontSize="9"
+                   Foreground="{StaticResource BrushTextDim}"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap"
+                   MaxWidth="400"
+                   Margin="0 16 0 40"
+                   TextAlignment="Center"/>
+
+        <Border Background="{StaticResource BrushBgPanel}"
+                BorderBrush="{StaticResource BrushBlueShadow}"
+                BorderThickness="3"
+                Padding="40 24"
+                Margin="0 0 0 40">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="GAME"
+                           FontFamily="Resources/Fonts/#Press Start 2P" FontSize="9"
+                           Foreground="{StaticResource BrushTextDim}"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding GameName}"
+                           FontFamily="Resources/Fonts/#Press Start 2P" FontSize="9"
+                           Foreground="{StaticResource BrushCream}"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="TIME"
+                           FontFamily="Resources/Fonts/#Press Start 2P" FontSize="9"
+                           Foreground="{StaticResource BrushTextDim}"/>
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding TimeDisplay}"
+                           FontFamily="Resources/Fonts/#Press Start 2P" FontSize="9"
+                           Foreground="{StaticResource BrushPink}"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="MOVES"
+                           FontFamily="Resources/Fonts/#Press Start 2P" FontSize="9"
+                           Foreground="{StaticResource BrushTextDim}"/>
+                <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding MoveDisplay}"
+                           FontFamily="Resources/Fonts/#Press Start 2P" FontSize="9"
+                           Foreground="{StaticResource BrushPink}"/>
+            </Grid>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="[ PLAY AGAIN ]"
+                    Command="{Binding PlayAgainCommand}"
+                    Style="{StaticResource PixelButton}"
+                    Margin="12 0"/>
+            <Button Content="[ MENU ]"
+                    Command="{Binding MenuCommand}"
+                    Style="{StaticResource PixelButtonAccent}"
+                    Margin="12 0"/>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

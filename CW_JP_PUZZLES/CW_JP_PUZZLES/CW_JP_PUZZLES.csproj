@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UI\Views\" />
+    <Folder Include="Resources\Config\" />
   </ItemGroup>
 
 </Project>

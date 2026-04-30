@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="CW_JP_PUZZLES.UI.Views.GameBoardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:CW_JP_PUZZLES.UI.ViewModels"
+             Background="{StaticResource BrushBgDeep}">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0 0 0 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0"
+                       Text="{Binding GameName}"
+                       FontFamily="Resources/Fonts/#Press Start 2P"
+                       FontSize="14"
+                       Foreground="{StaticResource BrushPink}"
+                       VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                <TextBlock Text="TIME"
+                           FontFamily="Resources/Fonts/#Press Start 2P"
+                           FontSize="8"
+                           Foreground="{StaticResource BrushTextDim}"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding TimeDisplay}"
+                           FontFamily="Resources/Fonts/#Press Start 2P"
+                           FontSize="20"
+                           Foreground="{StaticResource BrushCream}"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" HorizontalAlignment="Right">
+                <TextBlock Text="MOVES"
+                           FontFamily="Resources/Fonts/#Press Start 2P"
+                           FontSize="8"
+                           Foreground="{StaticResource BrushTextDim}"
+                           HorizontalAlignment="Right"/>
+                <TextBlock Text="{Binding MoveCount}"
+                           FontFamily="Resources/Fonts/#Press Start 2P"
+                           FontSize="20"
+                           Foreground="{StaticResource BrushCream}"
+                           HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="1"
+                BorderBrush="{StaticResource BrushBlueShadow}"
+                BorderThickness="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                SnapsToDevicePixels="True">
+            <ItemsControl ItemsSource="{Binding Cells}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="{Binding GridSize}"
+                                     Columns="{Binding GridSize}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type vm:CellViewModel}">
+                        <ContentControl Content="{Binding}">
+                            <ContentControl.ContentTemplate>
+                                <DataTemplate>
+                                    <Button DataContext="{Binding}"
+                                            Command="{Binding LeftClickCommand}"
+                                            Tag="{Binding RightClickCommand}">
+                                        <Button.InputBindings>
+                                            <MouseBinding MouseAction="RightClick"
+                                                          Command="{Binding RightClickCommand}"/>
+                                        </Button.InputBindings>
+                                    </Button>
+                                </DataTemplate>
+                            </ContentControl.ContentTemplate>
+                        </ContentControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+        <Border Grid.Row="2"
+                Background="{StaticResource BrushBgPanel}"
+                BorderBrush="{StaticResource BrushPurple}"
+                BorderThickness="2"
+                Margin="0 16 0 0"
+                Padding="12 8"
+                Visibility="{Binding IsHintVisible, Converter={StaticResource BoolToVis}}">
+            <TextBlock Text="{Binding HintText}"
+                       FontFamily="Resources/Fonts/#Press Start 2P"
+                       FontSize="8"
+                       Foreground="{StaticResource BrushGold}"
+                       TextWrapping="Wrap"/>
+        </Border>
+
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0 20 0 0">
+            <Button Content="[ HINT ]"
+                    Command="{Binding HintCommand}"
+                    Style="{StaticResource PixelButtonSmall}"
+                    Margin="8 0"/>
+            <Button Content="[ RESET ]"
+                    Command="{Binding ResetCommand}"
+                    Style="{StaticResource PixelButtonSmall}"
+                    Margin="8 0"/>
+            <Button Content="[ MENU ]"
+                    Command="{Binding BackCommand}"
+                    Style="{StaticResource PixelButtonAccent}"
+                    FontSize="8"
+                    Padding="10 6"
+                    Margin="8 0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
