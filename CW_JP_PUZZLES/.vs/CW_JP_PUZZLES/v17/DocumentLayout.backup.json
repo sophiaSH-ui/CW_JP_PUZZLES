@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\hitori\\hitorigenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\hitori\\hitorigenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\nurikabe\\nurikabegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\nurikabe\\nurikabegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\shikaku\\shikakugenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\shikaku\\shikakugenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\hitori\\hitorigenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\hitori\\hitorigenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\akari\\akarigenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\akari\\akarigenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\ui\\views\\gameboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\ui\\views\\gameboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\ui\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\ui\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\ui\\views\\difficultyview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -33,6 +29,42 @@
     {
       "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\common\\difficulty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\common\\difficulty.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\core\\puzzlebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\core\\puzzlebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\ui\\views\\gameboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\ui\\views\\gameboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\ui\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\ui\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\akari\\akarigame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\akari\\akarigame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\ui\\viewmodels\\cellviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\ui\\viewmodels\\cellviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\core\\cells\\akaricell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\core\\cells\\akaricell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\models\\gameconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\models\\gameconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\models\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\models\\gamesession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\games\\akari\\akarisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|solutionrelative:cw_jp_puzzles\\games\\akari\\akarisolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{54DD133B-30EB-44D4-9F90-A55CB79FAC15}|CW_JP_PUZZLES\\CW_JP_PUZZLES.csproj|f:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\cw_jp_puzzles\\cw_jp_puzzles\\cw_jp_puzzles\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -57,89 +89,186 @@
       "DocumentGroups": [
         {
           "DockedHeight": 74,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "ShikakuGenerator.cs",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Shikaku\\ShikakuGenerator.cs",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Games\\Shikaku\\ShikakuGenerator.cs",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Shikaku\\ShikakuGenerator.cs*",
+              "RelativeToolTip": "CW_JP_PUZZLES\\Games\\Shikaku\\ShikakuGenerator.cs*",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwCkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T16:25:22.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PuzzleBase.cs",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\PuzzleBase.cs",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Core\\PuzzleBase.cs",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\PuzzleBase.cs",
+              "RelativeToolTip": "CW_JP_PUZZLES\\Core\\PuzzleBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T16:20:55.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CellViewModel.cs",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\ViewModels\\CellViewModel.cs",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\ViewModels\\CellViewModel.cs",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\ViewModels\\CellViewModel.cs",
+              "RelativeToolTip": "CW_JP_PUZZLES\\UI\\ViewModels\\CellViewModel.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAA4wDQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T15:46:59.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AkariCell.cs",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\Cells\\AkariCell.cs",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Core\\Cells\\AkariCell.cs",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Core\\Cells\\AkariCell.cs",
+              "RelativeToolTip": "CW_JP_PUZZLES\\Core\\Cells\\AkariCell.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T15:42:00.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GameConfig.cs",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Models\\GameConfig.cs",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Models\\GameConfig.cs",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Models\\GameConfig.cs",
+              "RelativeToolTip": "CW_JP_PUZZLES\\Models\\GameConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T15:36:57.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GameSession.cs",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Models\\GameSession.cs",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Models\\GameSession.cs",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Models\\GameSession.cs",
+              "RelativeToolTip": "CW_JP_PUZZLES\\Models\\GameSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T15:36:58.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AkariGame.cs",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Akari\\AkariGame.cs",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Games\\Akari\\AkariGame.cs",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Akari\\AkariGame.cs",
+              "RelativeToolTip": "CW_JP_PUZZLES\\Games\\Akari\\AkariGame.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEEAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T15:19:23.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AkariSolver.cs",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Akari\\AkariSolver.cs",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Games\\Akari\\AkariSolver.cs",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Akari\\AkariSolver.cs",
+              "RelativeToolTip": "CW_JP_PUZZLES\\Games\\Akari\\AkariSolver.cs",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAuwNAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-04T15:09:55.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "HitoriGenerator.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Hitori\\HitoriGenerator.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Games\\Hitori\\HitoriGenerator.cs",
-              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Hitori\\HitoriGenerator.cs",
-              "RelativeToolTip": "CW_JP_PUZZLES\\Games\\Hitori\\HitoriGenerator.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAwwDwAAAAwAAAAAAAAAA==",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Hitori\\HitoriGenerator.cs*",
+              "RelativeToolTip": "CW_JP_PUZZLES\\Games\\Hitori\\HitoriGenerator.cs*",
+              "ViewState": "AgIAABMAAAAAAAAAAAAIwCQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-04T15:05:58.142Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "NurikabeGenerator.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Nurikabe\\NurikabeGenerator.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Games\\Nurikabe\\NurikabeGenerator.cs",
               "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Nurikabe\\NurikabeGenerator.cs",
               "RelativeToolTip": "CW_JP_PUZZLES\\Games\\Nurikabe\\NurikabeGenerator.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAwwCwAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAIwCsAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-04T15:05:53.881Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AkariGenerator.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Akari\\AkariGenerator.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Games\\Akari\\AkariGenerator.cs",
               "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Games\\Akari\\AkariGenerator.cs",
               "RelativeToolTip": "CW_JP_PUZZLES\\Games\\Akari\\AkariGenerator.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAUwBYAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAzwK8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-04T15:05:48.896Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "GameViewModel.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\ViewModels\\GameViewModel.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\ViewModels\\GameViewModel.cs",
               "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\ViewModels\\GameViewModel.cs",
               "RelativeToolTip": "CW_JP_PUZZLES\\UI\\ViewModels\\GameViewModel.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAYwLoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T15:04:13.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-04T15:04:13.557Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "DifficultyViewModel.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\ViewModels\\DifficultyViewModel.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\ViewModels\\DifficultyViewModel.cs",
               "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\ViewModels\\DifficultyViewModel.cs",
               "RelativeToolTip": "CW_JP_PUZZLES\\UI\\ViewModels\\DifficultyViewModel.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAwFMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAzwEwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-04T15:03:22.978Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Difficulty.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Common\\Difficulty.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Common\\Difficulty.cs",
               "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Common\\Difficulty.cs",
               "RelativeToolTip": "CW_JP_PUZZLES\\Common\\Difficulty.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-04T15:02:46.927Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "GameBoardView.xaml",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
@@ -151,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "App.xaml",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\App.xaml",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\App.xaml",
@@ -163,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "ResourcePart.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\b49ace08f4cd26a4f275d628999a0f91ccb8a1892704530d9e6f5bd1284082f1\\ResourcePart.cs",
               "ToolTip": "C:\\Users\\Asus\\AppData\\Local\\Temp\\.vsdbgsrc\\b49ace08f4cd26a4f275d628999a0f91ccb8a1892704530d9e6f5bd1284082f1\\ResourcePart.cs [Read Only]",
@@ -174,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "DifficultyView.xaml.cs",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\DifficultyView.xaml.cs",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\Views\\DifficultyView.xaml.cs",
@@ -186,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "DifficultyView.xaml",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\DifficultyView.xaml",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\Views\\DifficultyView.xaml",
@@ -198,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\MainWindow.xaml",
               "RelativeDocumentMoniker": "CW_JP_PUZZLES\\MainWindow.xaml",

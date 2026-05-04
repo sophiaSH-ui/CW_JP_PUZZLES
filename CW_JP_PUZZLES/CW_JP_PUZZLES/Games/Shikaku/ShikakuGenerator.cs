@@ -39,7 +39,7 @@ namespace CW_JP_PUZZLES.Games.Shikaku
             int targetRegions = difficulty switch
             {
                 Difficulty.Easy => 6,
-                Difficulty.Medium => 9,
+                //Difficulty.Medium => 9,
                 Difficulty.Hard => 12,
                 _ => 14
             };

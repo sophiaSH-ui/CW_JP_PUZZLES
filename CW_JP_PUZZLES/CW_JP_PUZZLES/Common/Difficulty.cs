@@ -9,7 +9,6 @@ namespace CW_JP_PUZZLES.Common
     public enum Difficulty
     {
         Easy,
-        Medium,
         Hard
     }
 }

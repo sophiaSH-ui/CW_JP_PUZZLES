@@ -34,7 +34,7 @@ namespace CW_JP_PUZZLES.Games.Hitori
             double blackRatio = difficulty switch
             {
                 Difficulty.Easy => 0.12,
-                Difficulty.Medium => 0.18,
+                //Difficulty.Medium => 0.18,
                 Difficulty.Hard => 0.24
             };
 

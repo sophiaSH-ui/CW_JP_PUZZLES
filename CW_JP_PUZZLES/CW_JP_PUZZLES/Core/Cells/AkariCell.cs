@@ -10,11 +10,14 @@ namespace CW_JP_PUZZLES.Core.Cells
     {
         public bool HasBulb { get; set; }
         public bool IsIlluminated { get; set; }
-        public int WallNumber { get; set; } = -1; 
+        public int WallNumber { get; set; } = -1;
+        public bool HasError { get; set; }
+
         public override void Reset()
         {
             HasBulb = false;
             IsIlluminated = false;
+            HasError = false;
         }
     }
 }

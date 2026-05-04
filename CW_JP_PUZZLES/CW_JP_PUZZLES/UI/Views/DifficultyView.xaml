@@ -42,24 +42,6 @@
                     </StackPanel>
                 </RadioButton>
 
-                <RadioButton IsChecked="{Binding IsMedium}"
-                             Foreground="{StaticResource BrushCream}"
-                             FontFamily="Resources/Fonts/#Press Start 2P"
-                             FontSize="10"
-                             Margin="0 0 0 20">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="MEDIUM"
-                                   Foreground="{StaticResource BrushCream}"
-                                   FontFamily="Resources/Fonts/#Press Start 2P"
-                                   FontSize="10"
-                                   Width="120"/>
-                        <TextBlock Text="7 × 7"
-                                   Foreground="{StaticResource BrushTextDim}"
-                                   FontFamily="Resources/Fonts/#Press Start 2P"
-                                   FontSize="10"/>
-                    </StackPanel>
-                </RadioButton>
-
                 <RadioButton IsChecked="{Binding IsHard}"
                              Foreground="{StaticResource BrushCream}"
                              FontFamily="Resources/Fonts/#Press Start 2P"
@@ -70,7 +52,7 @@
                                    FontFamily="Resources/Fonts/#Press Start 2P"
                                    FontSize="10"
                                    Width="120"/>
-                        <TextBlock Text="10 × 10"
+                        <TextBlock Text="7 × 7"
                                    Foreground="{StaticResource BrushTextDim}"
                                    FontFamily="Resources/Fonts/#Press Start 2P"
                                    FontSize="10"/>

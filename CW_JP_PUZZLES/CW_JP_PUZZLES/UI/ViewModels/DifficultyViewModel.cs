@@ -22,7 +22,6 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             {
                 SetField(ref _selected, value);
                 OnPropertyChanged(nameof(IsEasy));
-                OnPropertyChanged(nameof(IsMedium));
                 OnPropertyChanged(nameof(IsHard));
             }
         }
@@ -32,11 +31,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             get => _selected == Difficulty.Easy;
             set { if (value) SelectedDifficulty = Difficulty.Easy; }
         }
-        public bool IsMedium
-        {
-            get => _selected == Difficulty.Medium;
-            set { if (value) SelectedDifficulty = Difficulty.Medium; }
-        }
+
         public bool IsHard
         {
             get => _selected == Difficulty.Hard;
@@ -44,8 +39,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
         }
 
         public string EasyLabel => "EASY    5×5";
-        public string MediumLabel => "MEDIUM  7×7";
-        public string HardLabel => "HARD   10×10";
+        public string HardLabel => "HARD    7×7";
 
         public ICommand StartCommand { get; }
         public ICommand BackCommand { get; }
@@ -61,9 +55,8 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                 int size = SelectedDifficulty switch
                 {
                     Difficulty.Easy => 5,
-                    Difficulty.Medium => 7,
-                    Difficulty.Hard => 10,
-                    _ => 7
+                    Difficulty.Hard => 7,
+                    _ => 5
                 };
                 var config = new GameConfig
                 {

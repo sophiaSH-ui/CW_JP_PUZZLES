@@ -29,13 +29,15 @@ namespace CW_JP_PUZZLES.Games.Akari
             if (!IsInBounds(x, y)) return false;
 
             var cell = _grid[x, y];
-            if (cell.IsLocked) return false;        
-            if (cell.WallNumber >= 0) return false;   
+            if (cell.IsLocked) return false;
+            if (cell.WallNumber >= 0) return false;
 
             cell.HasBulb = !cell.HasBulb;
             MoveCount++;
 
             RecalculateIllumination();
+            CheckForErrors();
+
             return true;
         }
 
@@ -43,34 +45,25 @@ namespace CW_JP_PUZZLES.Games.Akari
         {
             if (!_solver.IsValid(_grid)) return false;
 
-            for (int x = 0; x < Size; x++)
-                for (int y = 0; y < Size; y++)
-                {
-                    var cell = _grid[x, y];
-                    if (cell.WallNumber < 0 && !cell.IsLocked)   
-                        if (!cell.IsIlluminated && !cell.HasBulb)
-                            return false;
-                }
-
             Timer.Stop();
             return true;
         }
 
-        public override string GetHint()
-        {
-            for (int x = 0; x < Size; x++)
-                for (int y = 0; y < Size; y++)
-                {
-                    var wall = _grid[x, y];
-                    if (wall.WallNumber < 0) continue;
+        //public override string GetHint()
+        //{
+        //    for (int x = 0; x < Size; x++)
+        //        for (int y = 0; y < Size; y++)
+        //        {
+        //            var wall = _grid[x, y];
+        //            if (wall.WallNumber < 0) continue;
 
-                    int bulbsAround = CountBulbsAround(x, y);
-                    if (bulbsAround < wall.WallNumber)
-                        return $"Стіна ({x},{y}) потребує {wall.WallNumber} лампочок, зараз {bulbsAround}.";
-                }
+        //            int bulbsAround = CountBulbsAround(x, y);
+        //            if (bulbsAround < wall.WallNumber)
+        //                return $"Стіна ({x},{y}) потребує {wall.WallNumber} лампочок, зараз {bulbsAround}.";
+        //        }
 
-            return "Спробуй пошукати незасвічену клітинку.";
-        }
+        //    return "Спробуй пошукати незасвічену клітинку.";
+        //}
 
         public override void Reset()
         {
@@ -82,6 +75,7 @@ namespace CW_JP_PUZZLES.Games.Akari
             RecalculateIllumination();
             Timer.Start();
         }
+
         private bool IsInBounds(int x, int y) =>
             GridManager.IsInBounds(x, y, Size, Size);
 
@@ -106,9 +100,60 @@ namespace CW_JP_PUZZLES.Games.Akari
                         int nx = x + dx[dir];
                         int ny = y + dy[dir];
 
-                        while (IsInBounds(nx, ny) && _grid[nx, ny].WallNumber < 0 && !_grid[nx, ny].IsLocked)
+                        while (IsInBounds(nx, ny) && !_grid[nx, ny].IsLocked)
                         {
                             _grid[nx, ny].IsIlluminated = true;
+                            nx += dx[dir];
+                            ny += dy[dir];
+                        }
+                    }
+                }
+        }
+
+        private void CheckForErrors()
+        {
+            for (int x = 0; x < Size; x++)
+                for (int y = 0; y < Size; y++)
+                    _grid[x, y].HasError = false;
+
+            for (int x = 0; x < Size; x++)
+                for (int y = 0; y < Size; y++)
+                {
+                    var cell = _grid[x, y];
+                    if (cell.IsLocked && cell.WallNumber >= 0)
+                    {
+                        if (CountBulbsAround(x, y) > cell.WallNumber)
+                        {
+                            cell.HasError = true;
+                            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
+                            {
+                                if (IsInBounds(nx, ny) && _grid[nx, ny].HasBulb)
+                                    _grid[nx, ny].HasError = true;
+                            }
+                        }
+                    }
+                }
+
+            int[] dx = { 0, 0, -1, 1 };
+            int[] dy = { -1, 1, 0, 0 };
+
+            for (int x = 0; x < Size; x++)
+                for (int y = 0; y < Size; y++)
+                {
+                    if (!_grid[x, y].HasBulb) continue;
+
+                    for (int dir = 0; dir < 4; dir++)
+                    {
+                        int nx = x + dx[dir];
+                        int ny = y + dy[dir];
+
+                        while (IsInBounds(nx, ny) && !_grid[nx, ny].IsLocked)
+                        {
+                            if (_grid[nx, ny].HasBulb)
+                            {
+                                _grid[x, y].HasError = true;
+                                _grid[nx, ny].HasError = true;
+                            }
                             nx += dx[dir];
                             ny += dy[dir];
                         }

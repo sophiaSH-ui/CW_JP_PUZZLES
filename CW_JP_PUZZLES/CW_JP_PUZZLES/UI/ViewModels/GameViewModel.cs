@@ -19,7 +19,6 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 {
     public class GameViewModel : ViewModelBase
     {
-
         private readonly MainViewModel _main;
         private readonly GameConfig _config;
         private readonly PuzzleBase _game;
@@ -45,24 +44,9 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             set => SetField(ref _moveCount, value);
         }
 
-        private string _hintText = string.Empty;
-        public string HintText
-        {
-            get => _hintText;
-            set => SetField(ref _hintText, value);
-        }
-
-        private bool _isHintVisible;
-        public bool IsHintVisible
-        {
-            get => _isHintVisible;
-            set => SetField(ref _isHintVisible, value);
-        }
-
         public string GameName => _config.GameName;
         public string Difficulty => _config.Difficulty.ToString();
 
-        public ICommand HintCommand { get; }
         public ICommand ResetCommand { get; }
         public ICommand BackCommand { get; }
 
@@ -84,19 +68,11 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             };
             _uiTimer.Start();
 
-            HintCommand = new RelayCommand(() =>
-            {
-                SoundService.Instance.PlaySfx(SoundEffect.Hint);
-                HintText = _game.GetHint();
-                IsHintVisible = true;
-            });
-
             ResetCommand = new RelayCommand(() =>
             {
                 SoundService.Instance.PlaySfx(SoundEffect.Click);
                 _game.Reset();
                 RefreshAllCells();
-                IsHintVisible = false;
             });
 
             BackCommand = new RelayCommand(() =>
@@ -176,6 +152,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                         vm.IsIlluminated = c.IsIlluminated;
                         vm.IsWall = c.IsLocked;
                         vm.WallNumber = c.WallNumber;
+                        vm.HasError = c.HasError;
                         break;
                     }
                 case "Hitori":

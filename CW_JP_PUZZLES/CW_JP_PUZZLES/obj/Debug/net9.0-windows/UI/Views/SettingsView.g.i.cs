@@ -53,7 +53,7 @@ namespace CW_JP_PUZZLES.UI.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CW_JP_PUZZLES;V1.0.0.0;component/ui/views/settingsview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CW_JP_PUZZLES;component/ui/views/settingsview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\UI\Views\SettingsView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

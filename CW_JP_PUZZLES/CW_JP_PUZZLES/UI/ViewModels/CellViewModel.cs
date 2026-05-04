@@ -23,6 +23,12 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             set => SetField(ref _isWall, value);
         }
 
+        private bool _hasError;
+        public bool HasError
+        {
+            get => _hasError;
+            set => SetField(ref _hasError, value);
+        }
         private bool _isBlackened;
         public bool IsBlackened
         {

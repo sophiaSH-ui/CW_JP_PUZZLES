@@ -9,7 +9,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="0 0 0 20">
@@ -92,16 +91,23 @@
 
                             <Grid>
                                 <Ellipse Width="36" Height="36"
-                                         Fill="{StaticResource BrushGold}"
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Center">
                                     <Ellipse.Style>
                                         <Style TargetType="Ellipse">
                                             <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Setter Property="Fill" Value="{StaticResource BrushGold}"/>
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding HasBulb}" Value="True">
                                                     <Setter Property="Visibility" Value="Visible"/>
                                                 </DataTrigger>
+                                                <MultiDataTrigger>
+                                                    <MultiDataTrigger.Conditions>
+                                                        <Condition Binding="{Binding HasBulb}" Value="True"/>
+                                                        <Condition Binding="{Binding HasError}" Value="True"/>
+                                                    </MultiDataTrigger.Conditions>
+                                                    <Setter Property="Fill" Value="Red"/>
+                                                </MultiDataTrigger>
                                             </Style.Triggers>
                                         </Style>
                                     </Ellipse.Style>
@@ -128,17 +134,20 @@
                                 <TextBlock HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                            FontSize="16"
-                                           FontFamily="Resources/Fonts/#Press Start 2P"
-                                           Foreground="{StaticResource BrushCream}">
+                                           FontFamily="Resources/Fonts/#Press Start 2P">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="Text" Value="{Binding DisplayValue}"/>
+                                            <Setter Property="Foreground" Value="{StaticResource BrushCream}"/>
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding ClueValue}" Value="">
                                                     <Setter Property="Text" Value="{Binding DisplayValue}"/>
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding IsWall}" Value="True">
                                                     <Setter Property="Text" Value="{Binding WallNumberText}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding HasError}" Value="True">
+                                                    <Setter Property="Foreground" Value="Red"/>
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
@@ -196,37 +205,10 @@
             </ItemsControl>
         </Border>
 
-        <Border Grid.Row="2"
-                Background="{StaticResource BrushBgPanel}"
-                BorderBrush="{StaticResource BrushPurple}"
-                BorderThickness="2"
-                Margin="0 16 0 0"
-                Padding="12 8">
-            <Border.Style>
-                <Style TargetType="Border">
-                    <Setter Property="Visibility" Value="Collapsed"/>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding IsHintVisible}" Value="True">
-                            <Setter Property="Visibility" Value="Visible"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Border.Style>
-            <TextBlock Text="{Binding HintText}"
-                       FontFamily="Resources/Fonts/#Press Start 2P"
-                       FontSize="8"
-                       Foreground="{StaticResource BrushGold}"
-                       TextWrapping="Wrap"/>
-        </Border>
-
-        <StackPanel Grid.Row="3"
+        <StackPanel Grid.Row="2"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="0 20 0 0">
-            <Button Content="[ HINT ]"
-                    Command="{Binding HintCommand}"
-                    Style="{StaticResource PixelButtonSmall}"
-                    Margin="8 0"/>
             <Button Content="[ RESET ]"
                     Command="{Binding ResetCommand}"
                     Style="{StaticResource PixelButtonSmall}"

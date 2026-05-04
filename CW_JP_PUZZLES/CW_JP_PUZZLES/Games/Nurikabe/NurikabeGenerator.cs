@@ -41,7 +41,7 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             var (islandCount, maxIslandSize) = difficulty switch
             {
                 Difficulty.Easy => (4, 4),
-                Difficulty.Medium => (5, 5),
+                //Difficulty.Medium => (5, 5),
                 Difficulty.Hard => (6, 4)
             };
 
