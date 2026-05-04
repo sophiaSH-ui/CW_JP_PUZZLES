@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using System.Windows.Threading;
 using CW_JP_PUZZLES.Common;
 using CW_JP_PUZZLES.Core;
 using CW_JP_PUZZLES.Core.Interfaces;
@@ -11,9 +11,6 @@ using CW_JP_PUZZLES.Games.Hitori;
 using CW_JP_PUZZLES.Games.Nurikabe;
 using CW_JP_PUZZLES.Games.Shikaku;
 using CW_JP_PUZZLES.Models;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using System.Windows.Threading;
 
 namespace CW_JP_PUZZLES.UI.ViewModels
 {
@@ -22,7 +19,6 @@ namespace CW_JP_PUZZLES.UI.ViewModels
         private readonly MainViewModel _main;
         private readonly GameConfig _config;
         private readonly PuzzleBase _game;
-
         private readonly DispatcherTimer _uiTimer;
 
         public ObservableCollection<CellViewModel> Cells { get; } = new();
@@ -49,6 +45,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
         public ICommand ResetCommand { get; }
         public ICommand BackCommand { get; }
+        public ICommand NewGameCommand { get; }
 
         public GameViewModel(MainViewModel main, GameConfig config)
         {
@@ -57,7 +54,6 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             _game = CreateGame(config.GameName);
 
             _game.GenerateField(config.Size, config.Difficulty);
-
             BuildCells();
 
             _uiTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
@@ -67,6 +63,15 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                 MoveCount = _game.MoveCount;
             };
             _uiTimer.Start();
+
+            NewGameCommand = new RelayCommand(() =>
+            {
+                SoundService.Instance.PlaySfx(SoundEffect.Click);
+                _game.GenerateField(_config.Size, _config.Difficulty);
+                BuildCells();
+                OnPropertyChanged(nameof(TimeDisplay));
+                OnPropertyChanged(nameof(MoveCount));
+            });
 
             ResetCommand = new RelayCommand(() =>
             {
@@ -95,7 +100,6 @@ namespace CW_JP_PUZZLES.UI.ViewModels
         private void BuildCells()
         {
             Cells.Clear();
-
             for (int x = 0; x < GridSize; x++)
                 for (int y = 0; y < GridSize; y++)
                 {

@@ -46,29 +46,29 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             return true;
         }
 
-        public override string GetHint()
-        {
-            int size = Size;
+        //public override string GetHint()
+        //{
+        //    int size = Size;
 
-            for (int x = 0; x < size - 1; x++)
-                for (int y = 0; y < size - 1; y++)
-                    if (_grid[x, y].IsBlack && _grid[x + 1, y].IsBlack &&
-                        _grid[x, y + 1].IsBlack && _grid[x + 1, y + 1].IsBlack)
-                        return $"Є заборонений 2×2 блок чорних клітинок біля ({x + 1},{y + 1}).";
+        //    for (int x = 0; x < size - 1; x++)
+        //        for (int y = 0; y < size - 1; y++)
+        //            if (_grid[x, y].IsBlack && _grid[x + 1, y].IsBlack &&
+        //                _grid[x, y + 1].IsBlack && _grid[x + 1, y + 1].IsBlack)
+        //                return $"Є заборонений 2×2 блок чорних клітинок біля ({x + 1},{y + 1}).";
 
-            for (int x = 0; x < size; x++)
-                for (int y = 0; y < size; y++)
-                {
-                    var cell = _grid[x, y];
-                    if (cell.ClueValue <= 0 || cell.IslandId < 0) continue;
+        //    for (int x = 0; x < size; x++)
+        //        for (int y = 0; y < size; y++)
+        //        {
+        //            var cell = _grid[x, y];
+        //            if (cell.ClueValue <= 0 || cell.IslandId < 0) continue;
 
-                    int islandSize = CountIsland(cell.IslandId);
-                    if (islandSize > cell.ClueValue)
-                        return $"Острів з підказкою {cell.ClueValue} біля ({x + 1},{y + 1}) вже має {islandSize} клітинок — забагато.";
-                }
+        //            int islandSize = CountIsland(cell.IslandId);
+        //            if (islandSize > cell.ClueValue)
+        //                return $"Острів з підказкою {cell.ClueValue} біля ({x + 1},{y + 1}) вже має {islandSize} клітинок — забагато.";
+        //        }
 
-            return "Виглядає правильно. Перевір чи всі чорні клітинки зв'язані.";
-        }
+        //    return "Виглядає правильно. Перевір чи всі чорні клітинки зв'язані.";
+        //}
 
         public override void Reset()
         {

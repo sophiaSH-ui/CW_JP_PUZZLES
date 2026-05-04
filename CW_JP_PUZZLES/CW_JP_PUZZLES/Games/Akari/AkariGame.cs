@@ -20,6 +20,8 @@ namespace CW_JP_PUZZLES.Games.Akari
         public override void GenerateField(int size, Difficulty difficulty)
         {
             Size = size;
+            MoveCount = 0; 
+            Timer.Reset(); 
             _grid = _generator.Generate(size, difficulty);
             Timer.Start();
         }
@@ -48,22 +50,6 @@ namespace CW_JP_PUZZLES.Games.Akari
             Timer.Stop();
             return true;
         }
-
-        //public override string GetHint()
-        //{
-        //    for (int x = 0; x < Size; x++)
-        //        for (int y = 0; y < Size; y++)
-        //        {
-        //            var wall = _grid[x, y];
-        //            if (wall.WallNumber < 0) continue;
-
-        //            int bulbsAround = CountBulbsAround(x, y);
-        //            if (bulbsAround < wall.WallNumber)
-        //                return $"Стіна ({x},{y}) потребує {wall.WallNumber} лампочок, зараз {bulbsAround}.";
-        //        }
-
-        //    return "Спробуй пошукати незасвічену клітинку.";
-        //}
 
         public override void Reset()
         {
@@ -109,6 +95,7 @@ namespace CW_JP_PUZZLES.Games.Akari
                     }
                 }
         }
+
 
         private void CheckForErrors()
         {

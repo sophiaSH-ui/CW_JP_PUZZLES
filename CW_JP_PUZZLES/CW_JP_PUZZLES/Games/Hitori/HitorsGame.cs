@@ -55,33 +55,33 @@ namespace CW_JP_PUZZLES.Games.Hitori
             return true;
         }
 
-        public override string GetHint()
-        {
-            for (int x = 0; x < Size; x++)
-            {
-                var duplicates = FindDuplicatesInRow(x);
-                if (duplicates.Count > 0)
-                    return $"Рядок {x + 1} має повторювані числа — спробуй зафарбувати одне з них.";
-            }
+        //public override string GetHint()
+        //{
+        //    for (int x = 0; x < Size; x++)
+        //    {
+        //        var duplicates = FindDuplicatesInRow(x);
+        //        if (duplicates.Count > 0)
+        //            return $"Рядок {x + 1} має повторювані числа — спробуй зафарбувати одне з них.";
+        //    }
 
-            for (int y = 0; y < Size; y++)
-            {
-                var duplicates = FindDuplicatesInCol(y);
-                if (duplicates.Count > 0)
-                    return $"Стовпець {y + 1} має повторювані числа — спробуй зафарбувати одне з них.";
-            }
+        //    for (int y = 0; y < Size; y++)
+        //    {
+        //        var duplicates = FindDuplicatesInCol(y);
+        //        if (duplicates.Count > 0)
+        //            return $"Стовпець {y + 1} має повторювані числа — спробуй зафарбувати одне з них.";
+        //    }
 
-            for (int x = 0; x < Size; x++)
-                for (int y = 0; y < Size; y++)
-                {
-                    if (!_grid[x, y].IsBlackened) continue;
-                    foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
-                        if (IsInBounds(nx, ny) && _grid[nx, ny].IsBlackened)
-                            return $"Клітинки ({x + 1},{y + 1}) та ({nx + 1},{ny + 1}) — дві чорні поруч, це заборонено.";
-                }
+        //    for (int x = 0; x < Size; x++)
+        //        for (int y = 0; y < Size; y++)
+        //        {
+        //            if (!_grid[x, y].IsBlackened) continue;
+        //            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
+        //                if (IsInBounds(nx, ny) && _grid[nx, ny].IsBlackened)
+        //                    return $"Клітинки ({x + 1},{y + 1}) та ({nx + 1},{ny + 1}) — дві чорні поруч, це заборонено.";
+        //        }
 
-            return "Виглядає добре! Перевір зв'язність білих клітинок.";
-        }
+        //    return "Виглядає добре! Перевір зв'язність білих клітинок.";
+        //}
 
         public override void Reset()
         {

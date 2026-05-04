@@ -86,18 +86,18 @@ namespace CW_JP_PUZZLES.Games.Shikaku
             return true;
         }
 
-        public override string GetHint()
-        {
-            for (int x = 0; x < Size; x++)
-                for (int y = 0; y < Size; y++)
-                {
-                    var cell = _grid[x, y];
-                    if (cell.ClueValue > 0 && cell.RegionId < 0)
-                        return $"Підказка ({x + 1},{y + 1}) зі значенням {cell.ClueValue} ще не має прямокутника.";
-                }
+        //public override string GetHint()
+        //{
+        //    for (int x = 0; x < Size; x++)
+        //        for (int y = 0; y < Size; y++)
+        //        {
+        //            var cell = _grid[x, y];
+        //            if (cell.ClueValue > 0 && cell.RegionId < 0)
+        //                return $"Підказка ({x + 1},{y + 1}) зі значенням {cell.ClueValue} ще не має прямокутника.";
+        //        }
 
-            return "Всі підказки покриті — перевір правильність прямокутників.";
-        }
+        //    return "Всі підказки покриті — перевір правильність прямокутників.";
+        //}
 
         public override void Reset()
         {
