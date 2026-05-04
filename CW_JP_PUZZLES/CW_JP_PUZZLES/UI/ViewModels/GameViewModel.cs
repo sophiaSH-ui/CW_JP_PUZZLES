@@ -19,6 +19,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 {
     public class GameViewModel : ViewModelBase
     {
+
         private readonly MainViewModel _main;
         private readonly GameConfig _config;
         private readonly PuzzleBase _game;
@@ -27,7 +28,8 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
         public ObservableCollection<CellViewModel> Cells { get; } = new();
 
-        public int GridSize => _config.Size; 
+        public int GridSize => _config.Size;
+        public int BoardPixelSize => _config.Size * 64;
 
         private string _timeDisplay = "00:00";
         public string TimeDisplay

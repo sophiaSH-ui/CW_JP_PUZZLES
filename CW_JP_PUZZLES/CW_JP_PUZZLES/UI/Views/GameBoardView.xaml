@@ -54,23 +54,21 @@
         </Grid>
 
         <Border Grid.Row="1"
-                BorderBrush="{StaticResource BrushBlueShadow}"
-                BorderThickness="3"
-                Width="452"
-                Height="452"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                SnapsToDevicePixels="True">
+        BorderBrush="{StaticResource BrushBlueShadow}"
+        BorderThickness="3"
+        Width="{Binding BoardPixelSize}"
+        Height="{Binding BoardPixelSize}"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        SnapsToDevicePixels="True">
 
             <ItemsControl ItemsSource="{Binding Cells}"
-                          Width="448"
-                          Height="448">
+                  Width="{Binding BoardPixelSize}"
+                  Height="{Binding BoardPixelSize}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <UniformGrid Rows="7"
-                                     Columns="7"
-                                     Width="448"
-                                     Height="448"/>
+                        <UniformGrid Rows="{Binding GridSize}"
+                             Columns="{Binding GridSize}"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 

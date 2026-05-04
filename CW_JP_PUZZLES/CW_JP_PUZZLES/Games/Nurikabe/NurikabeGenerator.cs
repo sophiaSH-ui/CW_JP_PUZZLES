@@ -42,8 +42,7 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             {
                 Difficulty.Easy => (4, 4),
                 Difficulty.Medium => (5, 5),
-                Difficulty.Hard => (6, 4),
-                Difficulty.Expert => (7, 3)
+                Difficulty.Hard => (6, 4)
             };
 
             bool success = PlaceIslands(field, size, islandCount, maxIslandSize);

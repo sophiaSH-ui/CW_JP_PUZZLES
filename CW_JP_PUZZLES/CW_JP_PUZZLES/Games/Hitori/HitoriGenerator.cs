@@ -35,8 +35,7 @@ namespace CW_JP_PUZZLES.Games.Hitori
             {
                 Difficulty.Easy => 0.12,
                 Difficulty.Medium => 0.18,
-                Difficulty.Hard => 0.24,
-                Difficulty.Expert => 0.30
+                Difficulty.Hard => 0.24
             };
 
             var field = new HitoriCell[size, size];

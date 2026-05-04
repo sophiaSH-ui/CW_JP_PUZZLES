@@ -20,8 +20,7 @@ namespace CW_JP_PUZZLES.Games.Akari
             {
                 Difficulty.Easy => 0.15,
                 Difficulty.Medium => 0.20,
-                Difficulty.Hard => 0.25,
-                Difficulty.Expert => 0.30
+                Difficulty.Hard => 0.25
             };
 
             AkariCell[,] field;

@@ -10,7 +10,6 @@ namespace CW_JP_PUZZLES.Common
     {
         Easy,
         Medium,
-        Hard,
-        Expert
+        Hard
     }
 }
