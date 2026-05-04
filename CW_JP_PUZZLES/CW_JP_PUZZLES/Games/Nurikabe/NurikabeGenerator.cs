@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CW_JP_PUZZLES.Common;
 using CW_JP_PUZZLES.Core.Cells;
@@ -16,20 +15,34 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
 
         public NurikabeCell[,] Generate(int size, Difficulty difficulty)
         {
-            NurikabeCell[,] field;
+            var (islandCount, maxIslandSize) = difficulty switch
+            {
+                Difficulty.Easy => (4, 4),
+                Difficulty.Hard => (6, 5),
+                _ => (4, 4)
+            };
+
+            NurikabeCell[,] field = BuildPuzzle(size, islandCount, maxIslandSize);
             int attempts = 0;
 
-            do
+            while (attempts < 5)
             {
-                field = BuildPuzzle(size, difficulty);
+                var testField = CloneField(field, size);
+                var task = Task.Run(() => _solver.HasUniqueSolution(testField));
+
+                if (task.Wait(TimeSpan.FromMilliseconds(200)))
+                {
+                    if (task.Result) return field;
+                }
+
+                field = BuildPuzzle(size, islandCount, maxIslandSize);
                 attempts++;
             }
-            while (!_solver.HasUniqueSolution(field) && attempts < 100);
 
             return field;
         }
 
-        private NurikabeCell[,] BuildPuzzle(int size, Difficulty difficulty)
+        private NurikabeCell[,] BuildPuzzle(int size, int islandCount, int maxIslandSize)
         {
             var field = new NurikabeCell[size, size];
             for (int x = 0; x < size; x++)
@@ -38,33 +51,19 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                     field[x, y] = new NurikabeCell { X = x, Y = y, IsBlack = true };
                 }
 
-            var (islandCount, maxIslandSize) = difficulty switch
-            {
-                Difficulty.Easy => (4, 4),
-                //Difficulty.Medium => (5, 5),
-                Difficulty.Hard => (6, 4)
-            };
-
             bool success = PlaceIslands(field, size, islandCount, maxIslandSize);
             if (!success) return field;
 
             FixTwoByTwo(field, size);
-
             FinalizeForPlayer(field, size);
 
             return field;
         }
 
-        private bool PlaceIslands(NurikabeCell[,] field, int size,
-            int islandCount, int maxIslandSize)
+        private bool PlaceIslands(NurikabeCell[,] field, int size, int islandCount, int maxIslandSize)
         {
             int totalCells = size * size;
-            int blackMin = islandCount; 
-
-            var positions = Enumerable.Range(0, totalCells)
-                                      .OrderBy(_ => _rng.Next())
-                                      .ToList();
-
+            var positions = Enumerable.Range(0, totalCells).OrderBy(_ => _rng.Next()).ToList();
             var islandSeeds = new List<(int x, int y)>();
 
             foreach (int pos in positions)
@@ -72,12 +71,9 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                 if (islandSeeds.Count >= islandCount) break;
 
                 int x = pos / size, y = pos % size;
+                bool tooClose = islandSeeds.Any(s => Math.Abs(s.x - x) + Math.Abs(s.y - y) < 3);
 
-                bool tooClose = islandSeeds.Any(s =>
-                    Math.Abs(s.x - x) + Math.Abs(s.y - y) < 3);
-
-                if (!tooClose)
-                    islandSeeds.Add((x, y));
+                if (!tooClose) islandSeeds.Add((x, y));
             }
 
             if (islandSeeds.Count < islandCount) return false;
@@ -93,8 +89,7 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             return true;
         }
 
-        private void GrowIsland(NurikabeCell[,] field, int size,
-            int sx, int sy, int targetSize, int islandId)
+        private void GrowIsland(NurikabeCell[,] field, int size, int sx, int sy, int targetSize, int islandId)
         {
             var island = new List<(int x, int y)>();
             var frontier = new List<(int x, int y)>();
@@ -131,17 +126,16 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             field[cx, cy].IsLocked = true;
         }
 
-        private bool CanJoinIsland(NurikabeCell[,] field, int size,
-            int x, int y, int islandId)
+        private bool CanJoinIsland(NurikabeCell[,] field, int size, int x, int y, int islandId)
         {
-            if (!field[x, y].IsBlack) return false; 
+            if (!field[x, y].IsBlack) return false;
 
             foreach (var (nx, ny) in Neighbors(x, y))
             {
                 if (!InBounds(nx, ny, size)) continue;
                 var nb = field[nx, ny];
                 if (!nb.IsBlack && nb.IslandId >= 0 && nb.IslandId != islandId)
-                    return false; 
+                    return false;
             }
 
             return true;
@@ -160,10 +154,8 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                             !field[x, y + 1].IsBlack || !field[x + 1, y + 1].IsBlack)
                             continue;
 
-                        var candidates = new[]
-                        {
-                            (x, y), (x + 1, y), (x, y + 1), (x + 1, y + 1)
-                        }.Where(c => field[c.Item1, c.Item2].ClueValue <= 0).ToList();
+                        var candidates = new[] { (x, y), (x + 1, y), (x, y + 1), (x + 1, y + 1) }
+                            .Where(c => field[c.Item1, c.Item2].ClueValue <= 0).ToList();
 
                         if (candidates.Count == 0) continue;
 
@@ -211,6 +203,22 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                         field[x, y].IslandId = -1;
                     }
                 }
+        }
+
+        private NurikabeCell[,] CloneField(NurikabeCell[,] src, int size)
+        {
+            var clone = new NurikabeCell[size, size];
+            for (int x = 0; x < size; x++)
+                for (int y = 0; y < size; y++)
+                    clone[x, y] = new NurikabeCell
+                    {
+                        X = x,
+                        Y = y,
+                        ClueValue = src[x, y].ClueValue,
+                        IsBlack = src[x, y].IsBlack,
+                        IsLocked = src[x, y].IsLocked
+                    };
+            return clone;
         }
 
         private static (int x, int y)[] Neighbors(int x, int y) =>

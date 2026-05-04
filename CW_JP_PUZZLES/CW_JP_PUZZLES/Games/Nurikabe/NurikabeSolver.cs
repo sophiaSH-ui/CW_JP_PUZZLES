@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CW_JP_PUZZLES.Core.Cells;
 using CW_JP_PUZZLES.Core.Interfaces;
 
@@ -58,7 +54,7 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             if (!IsPartiallyInvalid(field, size, x, y))
                 Solve(field, size, pos + 1, ref count);
 
-            cell.IsBlack = false; 
+            cell.IsBlack = false;
         }
 
         private bool IsPartiallyInvalid(NurikabeCell[,] field, int size, int x, int y)

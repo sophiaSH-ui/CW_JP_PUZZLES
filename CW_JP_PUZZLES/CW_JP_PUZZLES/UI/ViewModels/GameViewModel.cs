@@ -173,6 +173,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                         var g = (ShikakuGame)_game;
                         var c = g.Grid[x, y];
                         vm.ClueValue = c.ClueValue > 0 ? c.ClueValue.ToString() : "";
+                        vm.DisplayValue = vm.ClueValue;
                         vm.RegionId = c.RegionId;
                         break;
                     }
@@ -182,6 +183,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                         var c = g.Grid[x, y];
                         vm.IsBlackened = c.IsBlack;
                         vm.ClueValue = c.ClueValue > 0 ? c.ClueValue.ToString() : "";
+                        vm.DisplayValue = vm.ClueValue;
                         vm.IslandId = c.IslandId;
                         break;
                     }
