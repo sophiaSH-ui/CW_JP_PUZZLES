@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CW_JP_PUZZLES.Common;
 using CW_JP_PUZZLES.Core;
 using CW_JP_PUZZLES.Core.Cells;
@@ -20,6 +16,8 @@ namespace CW_JP_PUZZLES.Games.Shikaku
         public override void GenerateField(int size, Difficulty difficulty)
         {
             Size = size;
+            MoveCount = 0;
+            Timer.Reset();
             _grid = _generator.Generate(size, difficulty);
             Timer.Start();
         }
@@ -44,8 +42,8 @@ namespace CW_JP_PUZZLES.Games.Shikaku
                         clueValue = _grid[rx, ry].ClueValue;
                     }
 
-            if (clueCount != 1) return false;           
-            if (clueValue != regionArea) return false;  
+            if (clueCount != 1) return false;
+            if (clueValue != regionArea) return false;
 
             int newRegionId = GetNextRegionId();
             for (int rx = x1; rx <= x2; rx++)
@@ -85,19 +83,6 @@ namespace CW_JP_PUZZLES.Games.Shikaku
             Timer.Stop();
             return true;
         }
-
-        //public override string GetHint()
-        //{
-        //    for (int x = 0; x < Size; x++)
-        //        for (int y = 0; y < Size; y++)
-        //        {
-        //            var cell = _grid[x, y];
-        //            if (cell.ClueValue > 0 && cell.RegionId < 0)
-        //                return $"Підказка ({x + 1},{y + 1}) зі значенням {cell.ClueValue} ще не має прямокутника.";
-        //        }
-
-        //    return "Всі підказки покриті — перевір правильність прямокутників.";
-        //}
 
         public override void Reset()
         {

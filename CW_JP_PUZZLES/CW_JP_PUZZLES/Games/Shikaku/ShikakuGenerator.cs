@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CW_JP_PUZZLES.Common;
 using CW_JP_PUZZLES.Core.Cells;
 using CW_JP_PUZZLES.Core.Interfaces;
@@ -39,9 +37,8 @@ namespace CW_JP_PUZZLES.Games.Shikaku
             int targetRegions = difficulty switch
             {
                 Difficulty.Easy => 6,
-                //Difficulty.Medium => 9,
                 Difficulty.Hard => 12,
-                _ => 14
+                _ => 8
             };
 
             bool success = PartitionField(field, size, targetRegions);
@@ -68,7 +65,7 @@ namespace CW_JP_PUZZLES.Games.Shikaku
                     .OrderByDescending(r => (r.x2 - r.x1 + 1) * (r.y2 - r.y1 + 1))
                     .FirstOrDefault();
 
-                if (largest == default) break; 
+                if (largest == default) break;
 
                 regions.Remove(largest);
                 var (a, b) = SplitRegion(largest);

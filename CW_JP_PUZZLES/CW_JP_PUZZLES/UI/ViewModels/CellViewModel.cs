@@ -16,6 +16,13 @@ namespace CW_JP_PUZZLES.UI.ViewModels
         private readonly string _gameName;
         private readonly Action<int, int, object?> _onAction;
 
+        //private string _regionColor = "Transparent";
+        //public string RegionColor
+        //{
+        //    get => _regionColor;
+        //    set => SetField(ref _regionColor, value);
+        //}
+
         private bool _isWall;
         public bool IsWall
         {
@@ -90,8 +97,10 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             get => _regionId;
             set
             {
-                SetField(ref _regionId, value);
-                OnPropertyChanged(nameof(RegionColor));
+                if (SetField(ref _regionId, value))
+                {
+                    OnPropertyChanged(nameof(RegionColor));
+                }
             }
         }
 
@@ -101,10 +110,10 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
         private static readonly string[] RegionColors =
         {
-            "#3a7bd5", "#e84393", "#f7971e", "#21d4fd",
-            "#b721ff", "#08f76e", "#ff6b35", "#00d2ff"
-        };
-        
+    "#4A90E2", "#50E3C2", "#F5A623", "#D0021B",
+    "#BD10E0", "#7ED321", "#F8E71C", "#8B572A"
+};
+
         private int _islandId = -1;
         public int IslandId
         {

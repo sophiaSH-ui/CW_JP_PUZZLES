@@ -20,6 +20,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
         private readonly GameConfig _config;
         private readonly PuzzleBase _game;
         private readonly DispatcherTimer _uiTimer;
+        private (int x, int y)? _shikakuStartPoint = null;
 
         public ObservableCollection<CellViewModel> Cells { get; } = new();
 
@@ -68,6 +69,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             {
                 SoundService.Instance.PlaySfx(SoundEffect.Click);
                 _game.GenerateField(_config.Size, _config.Difficulty);
+                _shikakuStartPoint = null;
                 BuildCells();
                 OnPropertyChanged(nameof(TimeDisplay));
                 OnPropertyChanged(nameof(MoveCount));
@@ -77,6 +79,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             {
                 SoundService.Instance.PlaySfx(SoundEffect.Click);
                 _game.Reset();
+                _shikakuStartPoint = null;
                 RefreshAllCells();
             });
 
@@ -111,16 +114,46 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
         private void OnCellAction(int x, int y, object? moveData)
         {
-            bool moved = _game.MakeMove(x, y, moveData);
+            bool moved = false;
+            string action = moveData as string ?? "black";
+
+            if (_config.GameName == "Shikaku")
+            {
+                if (action == "white" || action == "remove")
+                {
+                    var sg = (ShikakuGame)_game;
+                    moved = sg.RemoveRegion(x, y);
+                    _shikakuStartPoint = null;
+                }
+                else
+                {
+                    if (_shikakuStartPoint == null)
+                    {
+                        _shikakuStartPoint = (x, y);
+                        SoundService.Instance.PlaySfx(SoundEffect.Click);
+                        return;
+                    }
+                    else
+                    {
+                        var start = _shikakuStartPoint.Value;
+                        moved = _game.MakeMove(start.x, start.y, (x, y));
+                        _shikakuStartPoint = null;
+                    }
+                }
+            }
+            else
+            {
+                moved = _game.MakeMove(x, y, moveData);
+            }
 
             if (!moved)
             {
                 SoundService.Instance.PlaySfx(SoundEffect.Error);
+                _shikakuStartPoint = null;
                 return;
             }
 
-            SoundService.Instance.PlaySfx(
-                moveData is "black" or null ? SoundEffect.Place : SoundEffect.Remove);
+            SoundService.Instance.PlaySfx(action == "black" || action == "circle" ? SoundEffect.Place : SoundEffect.Remove);
 
             RefreshAllCells();
 

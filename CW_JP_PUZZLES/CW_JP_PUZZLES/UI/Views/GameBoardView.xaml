@@ -53,21 +53,21 @@
         </Grid>
 
         <Border Grid.Row="1"
-        BorderBrush="{StaticResource BrushBlueShadow}"
-        BorderThickness="3"
-        Width="{Binding BoardPixelSize}"
-        Height="{Binding BoardPixelSize}"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        SnapsToDevicePixels="True">
+                BorderBrush="{StaticResource BrushBlueShadow}"
+                BorderThickness="3"
+                Width="{Binding BoardPixelSize}"
+                Height="{Binding BoardPixelSize}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                SnapsToDevicePixels="True">
 
             <ItemsControl ItemsSource="{Binding Cells}"
-                  Width="{Binding BoardPixelSize}"
-                  Height="{Binding BoardPixelSize}">
+                          Width="{Binding BoardPixelSize}"
+                          Height="{Binding BoardPixelSize}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Rows="{Binding GridSize}"
-                             Columns="{Binding GridSize}"/>
+                                     Columns="{Binding GridSize}"/>
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
@@ -167,8 +167,13 @@
                                                         BorderBrush="{StaticResource BrushBorder}"
                                                         BorderThickness="2"
                                                         SnapsToDevicePixels="True">
-                                                    <ContentPresenter HorizontalAlignment="Center"
-                                                                      VerticalAlignment="Center"/>
+                                                    <Grid>
+                                                        <Rectangle Fill="{Binding RegionColor}" 
+                                                                   Opacity="0.4" 
+                                                                   IsHitTestVisible="False"/>
+                                                        <ContentPresenter HorizontalAlignment="Center"
+                                                                          VerticalAlignment="Center"/>
+                                                    </Grid>
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <DataTrigger Binding="{Binding IsIlluminated}" Value="True">
@@ -212,7 +217,7 @@
             <Button Content="[ NEW ]"
                     Command="{Binding NewGameCommand}"
                     Style="{StaticResource PixelButtonSmall}"
-                     Margin="8 0"/>
+                    Margin="8 0"/>
             <Button Content="[ RESET ]"
                     Command="{Binding ResetCommand}"
                     Style="{StaticResource PixelButtonSmall}"
