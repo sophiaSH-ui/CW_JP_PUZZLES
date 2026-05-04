@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.Generic;
 using CW_JP_PUZZLES.Core.Cells;
 using CW_JP_PUZZLES.Core.Interfaces;
 
@@ -39,24 +34,40 @@ namespace CW_JP_PUZZLES.Games.Hitori
             }
 
             int x = pos / size, y = pos % size;
-            var cell = field[x, y];
 
-            Solve(field, size, pos + 1, ref count);
+            if (CanBeWhite(field, x, y, size))
+            {
+                field[x, y].IsBlackened = false;
+                Solve(field, size, pos + 1, ref count);
+            }
 
             if (!HasAdjacentBlack(field, x, y, size))
             {
-                cell.IsBlackened = true;
+                field[x, y].IsBlackened = true;
                 Solve(field, size, pos + 1, ref count);
-                cell.IsBlackened = false;
+                field[x, y].IsBlackened = false; 
             }
+        }
+
+        private bool CanBeWhite(HitoriCell[,] field, int x, int y, int size)
+        {
+            int val = field[x, y].Value;
+
+            for (int j = 0; j < y; j++)
+                if (!field[x, j].IsBlackened && field[x, j].Value == val) return false;
+
+            for (int i = 0; i < x; i++)
+                if (!field[i, y].IsBlackened && field[i, y].Value == val) return false;
+
+            return true;
         }
 
         private bool NoDuplicatesInLines(HitoriCell[,] field, int size)
         {
             for (int i = 0; i < size; i++)
             {
-                if (!IsLineUnique(field, size, i, isRow: true)) return false;
-                if (!IsLineUnique(field, size, i, isRow: false)) return false;
+                if (!IsLineUnique(field, size, i, true)) return false;
+                if (!IsLineUnique(field, size, i, false)) return false;
             }
             return true;
         }

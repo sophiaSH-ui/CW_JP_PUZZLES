@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CW_JP_PUZZLES.Common;
 using CW_JP_PUZZLES.Core.Cells;
@@ -16,38 +15,83 @@ namespace CW_JP_PUZZLES.Games.Hitori
 
         public HitoriCell[,] Generate(int size, Difficulty difficulty)
         {
-            HitoriCell[,] field;
+            double blackRatio = difficulty switch
+            {
+                Difficulty.Easy => 0.15,
+                Difficulty.Hard => 0.22,
+                _ => 0.15
+            };
+
+            HitoriCell[,] field = BuildPuzzle(size, blackRatio);
             int attempts = 0;
 
-            do
+            while (attempts < 5)
             {
-                field = BuildPuzzle(size, difficulty);
+                var testField = CloneField(field, size);
+                var task = Task.Run(() => _solver.HasUniqueSolution(testField));
+
+                if (task.Wait(TimeSpan.FromMilliseconds(200)))
+                {
+                    if (task.Result) return field;
+                }
+
+                field = BuildPuzzle(size, blackRatio);
                 attempts++;
             }
-            while (!_solver.HasUniqueSolution(field) && attempts < 100);
 
             return field;
         }
 
-        private HitoriCell[,] BuildPuzzle(int size, Difficulty difficulty)
+        private HitoriCell[,] BuildPuzzle(int size, double blackRatio)
         {
-            double blackRatio = difficulty switch
-            {
-                Difficulty.Easy => 0.12,
-                //Difficulty.Medium => 0.18,
-                Difficulty.Hard => 0.24
-            };
-
             var field = new HitoriCell[size, size];
             for (int x = 0; x < size; x++)
                 for (int y = 0; y < size; y++)
                     field[x, y] = new HitoriCell { X = x, Y = y };
 
             var blackMask = PlaceBlacks(size, blackRatio);
-            
-            FillValues(field, blackMask, size);
+            FillValuesLatinSquare(field, blackMask, size);
 
             return field;
+        }
+
+        private void FillValuesLatinSquare(HitoriCell[,] field, bool[,] blackMask, int size)
+        {
+            int[,] grid = new int[size, size];
+            var rowBase = Enumerable.Range(1, size).OrderBy(_ => _rng.Next()).ToList();
+
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    grid[i, j] = rowBase[(i + j) % size];
+
+            var rowIndices = Enumerable.Range(0, size).OrderBy(_ => _rng.Next()).ToList();
+            var colIndices = Enumerable.Range(0, size).OrderBy(_ => _rng.Next()).ToList();
+
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    field[i, j].Value = grid[rowIndices[i], colIndices[j]];
+
+            for (int x = 0; x < size; x++)
+                for (int y = 0; y < size; y++)
+                {
+                    if (!blackMask[x, y]) continue;
+
+                    bool useRow = _rng.Next(2) == 0;
+                    if (useRow)
+                    {
+                        var rowVals = Enumerable.Range(0, size)
+                            .Where(j => j != y && !blackMask[x, j])
+                            .Select(j => field[x, j].Value).ToList();
+                        if (rowVals.Count > 0) field[x, y].Value = rowVals[_rng.Next(rowVals.Count)];
+                    }
+                    else
+                    {
+                        var colVals = Enumerable.Range(0, size)
+                            .Where(i => i != x && !blackMask[i, y])
+                            .Select(i => field[i, y].Value).ToList();
+                        if (colVals.Count > 0) field[x, y].Value = colVals[_rng.Next(colVals.Count)];
+                    }
+                }
         }
 
         private bool[,] PlaceBlacks(int size, double ratio)
@@ -56,9 +100,7 @@ namespace CW_JP_PUZZLES.Games.Hitori
             int target = (int)(size * size * ratio);
             int placed = 0;
 
-            var positions = Enumerable.Range(0, size * size)
-                                      .OrderBy(_ => _rng.Next())
-                                      .ToList();
+            var positions = Enumerable.Range(0, size * size).OrderBy(_ => _rng.Next()).ToList();
 
             foreach (int pos in positions)
             {
@@ -76,30 +118,6 @@ namespace CW_JP_PUZZLES.Games.Hitori
             }
 
             return mask;
-        }
-
-        private void FillValues(HitoriCell[,] field, bool[,] blackMask, int size)
-        {
-            for (int x = 0; x < size; x++)
-            {
-                var nums = Enumerable.Range(1, size).OrderBy(_ => _rng.Next()).ToList();
-                for (int y = 0; y < size; y++)
-                    field[x, y].Value = nums[y];
-            }
-
-            for (int x = 0; x < size; x++)
-                for (int y = 0; y < size; y++)
-                {
-                    if (!blackMask[x, y]) continue;
-
-                    var rowVals = Enumerable.Range(0, size)
-                        .Where(j => j != y && !blackMask[x, j])
-                        .Select(j => field[x, j].Value)
-                        .ToList();
-
-                    if (rowVals.Count > 0)
-                        field[x, y].Value = rowVals[_rng.Next(rowVals.Count)];
-                }
         }
 
         private bool HasAdjacentBlack(bool[,] mask, int x, int y, int size)
@@ -141,8 +159,16 @@ namespace CW_JP_PUZZLES.Games.Hitori
                     queue.Enqueue((nx, ny));
                 }
             }
-
             return count == total;
+        }
+
+        private HitoriCell[,] CloneField(HitoriCell[,] src, int size)
+        {
+            var clone = new HitoriCell[size, size];
+            for (int x = 0; x < size; x++)
+                for (int y = 0; y < size; y++)
+                    clone[x, y] = new HitoriCell { X = x, Y = y, Value = src[x, y].Value };
+            return clone;
         }
     }
 }
