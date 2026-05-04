@@ -52,19 +52,14 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             StartCommand = new RelayCommand(() =>
             {
                 SoundService.Instance.PlaySfx(SoundEffect.Click);
-                int size = SelectedDifficulty switch
-                {
-                    Difficulty.Easy => 5,
-                    Difficulty.Hard => 7,
-                    _ => 5
-                };
+
                 var config = new GameConfig
                 {
                     GameName = GameName,
-                    Size = size,
-                    Difficulty = SelectedDifficulty
+                    Difficulty = SelectedDifficulty 
                 };
-                _main.NavigateToGame(config);
+
+                _main.NavigateToGame(config); 
             });
 
             BackCommand = new RelayCommand(() =>

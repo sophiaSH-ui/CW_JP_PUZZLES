@@ -9,9 +9,15 @@ namespace CW_JP_PUZZLES.Models
 {
     public class GameConfig
     {
-        public string GameName { get; set; } = "Japanese Puzzle";
-        public int Size { get; set; } = 7;
+        public string GameName { get; set; } = "Akari";
         public Difficulty Difficulty { get; set; } = Difficulty.Easy;
-        public string LevelSourcePath { get; set; } = string.Empty;
+        public int Size => GetSizeForDifficulty(Difficulty);
+
+        private static int GetSizeForDifficulty(Difficulty diff) => diff switch
+        {
+            Difficulty.Easy => 5,
+            Difficulty.Hard => 7,
+            _ => 5
+        };
     }
 }
