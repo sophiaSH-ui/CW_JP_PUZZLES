@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -98,8 +98,8 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             field[sx, sy].IslandId = islandId;
             island.Add((sx, sy));
 
-            foreach (var nb in Neighbors(sx, sy))
-                if (InBounds(nb.x, nb.y, size) && CanJoinIsland(field, size, nb.x, nb.y, islandId))
+            foreach (var nb in GridManager.GetNeighbors(sx, sy))
+                if (GridManager.IsInBounds(nb.x, nb.y, size, size) && CanJoinIsland(field, size, nb.x, nb.y, islandId))
                     frontier.Add(nb);
 
             while (island.Count < targetSize && frontier.Count > 0)
@@ -114,8 +114,8 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                 field[nx, ny].IslandId = islandId;
                 island.Add((nx, ny));
 
-                foreach (var nb in Neighbors(nx, ny))
-                    if (InBounds(nb.x, nb.y, size) &&
+                foreach (var nb in GridManager.GetNeighbors(nx, ny))
+                    if (GridManager.IsInBounds(nb.x, nb.y, size, size) &&
                         CanJoinIsland(field, size, nb.x, nb.y, islandId) &&
                         !frontier.Contains(nb))
                         frontier.Add(nb);
@@ -130,9 +130,9 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
         {
             if (!field[x, y].IsBlack) return false;
 
-            foreach (var (nx, ny) in Neighbors(x, y))
+            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
             {
-                if (!InBounds(nx, ny, size)) continue;
+                if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
                 var nb = field[nx, ny];
                 if (!nb.IsBlack && nb.IslandId >= 0 && nb.IslandId != islandId)
                     return false;
@@ -169,9 +169,9 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
 
         private void AssignToNearestIsland(NurikabeCell[,] field, int size, int x, int y)
         {
-            foreach (var (nx, ny) in Neighbors(x, y))
+            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
             {
-                if (!InBounds(nx, ny, size)) continue;
+                if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
                 if (!field[nx, ny].IsBlack && field[nx, ny].IslandId >= 0)
                 {
                     field[x, y].IslandId = field[nx, ny].IslandId;
@@ -220,11 +220,5 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                     };
             return clone;
         }
-
-        private static (int x, int y)[] Neighbors(int x, int y) =>
-            new[] { (x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y) };
-
-        private static bool InBounds(int x, int y, int size) =>
-            x >= 0 && x < size && y >= 0 && y < size;
     }
 }
