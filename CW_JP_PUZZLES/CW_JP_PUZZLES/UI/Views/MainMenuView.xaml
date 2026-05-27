@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="CW_JP_PUZZLES.UI.Views.MainMenuView"
+<UserControl x:Class="CW_JP_PUZZLES.UI.Views.MainMenuView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="Transparent">
@@ -14,7 +14,7 @@
 
                 <Button Content="SETTINGS" Command="{Binding OpenSettingsCommand}" Style="{StaticResource ModernButton}" Height="64" Margin="0 0 0 45" FontSize="24"/>
 
-                <Button Content="EXIT" Style="{StaticResource ModernButton}" Background="{StaticResource BrushDestructive}" Height="64" Width="240" FontSize="24"/>
+                <Button Content="EXIT" Command="{Binding ExitCommand}" Style="{StaticResource ModernButton}" Background="{StaticResource BrushDestructive}" Height="64" Width="240" FontSize="24"/>
             </StackPanel>
         </Grid>
     </Border>

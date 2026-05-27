@@ -217,30 +217,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 74,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SettingsView.xaml",
-              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\SettingsView.xaml",
-              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\Views\\SettingsView.xaml",
-              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\SettingsView.xaml",
-              "RelativeToolTip": "CW_JP_PUZZLES\\UI\\Views\\SettingsView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-27T12:14:16.71Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GameBoardView.xaml",
-              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
-              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
-              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
-              "RelativeToolTip": "CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-30T20:46:09.037Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 6,
@@ -301,6 +279,29 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PixelColors.xaml",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Resources\\Styles\\PixelColors.xaml",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Resources\\Styles\\PixelColors.xaml",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Resources\\Styles\\PixelColors.xaml",
+              "RelativeToolTip": "CW_JP_PUZZLES\\Resources\\Styles\\PixelColors.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-27T19:40:33.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameBoardView.xaml",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
+              "RelativeToolTip": "CW_JP_PUZZLES\\UI\\Views\\GameBoardView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-30T20:46:09.037Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\MainWindow.xaml",
@@ -312,15 +313,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PixelColors.xaml",
-              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Resources\\Styles\\PixelColors.xaml",
-              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\Resources\\Styles\\PixelColors.xaml",
-              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\Resources\\Styles\\PixelColors.xaml",
-              "RelativeToolTip": "CW_JP_PUZZLES\\Resources\\Styles\\PixelColors.xaml",
+              "DocumentIndex": 3,
+              "Title": "SettingsView.xaml",
+              "DocumentMoniker": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\SettingsView.xaml",
+              "RelativeDocumentMoniker": "CW_JP_PUZZLES\\UI\\Views\\SettingsView.xaml",
+              "ToolTip": "F:\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430_2\u043A\u0443\u0440\u0441_2\u0441\u0435\u043C\u0435\u0441\u0442\u0440\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\CW_JP_PUZZLES\\UI\\Views\\SettingsView.xaml",
+              "RelativeToolTip": "CW_JP_PUZZLES\\UI\\Views\\SettingsView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-05-27T19:40:33.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T12:14:16.71Z"
             },
             {
               "$type": "Document",

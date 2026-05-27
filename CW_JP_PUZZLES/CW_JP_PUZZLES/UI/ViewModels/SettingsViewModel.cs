@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,13 +78,13 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                     MusicVolume = MusicVolume,
                     SfxVolume = SfxVolume
                 });
-                _main.NavigateToMenu();
+                _main.GoBackCommand.Execute(null);
             });
 
             BackCommand = new RelayCommand(() =>
             {
                 SoundService.Instance.PlaySfx(SoundEffect.Navigate);
-                _main.NavigateToMenu();
+                _main.GoBackCommand.Execute(null);
             });
         }
     }

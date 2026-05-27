@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +37,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
         public ICommand SelectGameCommand { get; }
         public ICommand OpenSettingsCommand { get; }
+        public ICommand ExitCommand { get; }
 
         public MainMenuViewModel(MainViewModel main)
         {
@@ -53,6 +54,8 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
             OpenSettingsCommand = new RelayCommand(() =>
                 _main.NavigateToSettings());
+
+            ExitCommand = new RelayCommand(() => _main.ExitCommand.Execute(null));
         }
     }
 

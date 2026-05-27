@@ -56,6 +56,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
         public ICommand ResetCommand { get; }
         public ICommand BackCommand { get; }
         public ICommand NewGameCommand { get; }
+        public ICommand OpenSettingsCommand { get; }
 
         public GameViewModel(MainViewModel main, GameConfig config)
         {
@@ -91,6 +92,8 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                 _shikakuStartPoint = null;
                 RefreshAllCells();
             });
+
+            OpenSettingsCommand = new RelayCommand(() => _main.NavigateToSettings());
 
             BackCommand = new RelayCommand(() =>
             {
