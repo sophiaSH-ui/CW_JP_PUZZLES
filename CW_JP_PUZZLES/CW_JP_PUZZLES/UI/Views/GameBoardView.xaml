@@ -30,13 +30,16 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Border Grid.Row="0" Background="{StaticResource BrushElementBg}" CornerRadius="20" Padding="25">
-                        <StackPanel>
-                            <TextBlock Text="{Binding GameName}" Foreground="{StaticResource BrushWhite}" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 0 0 15"/>
-                            <TextBlock Text="Place elements carefully following the unique constraints of the puzzle rules. Ensure complete logic synchronization across rows and structural boundaries." 
-                                       Foreground="{StaticResource BrushWhite}" FontSize="15" TextWrapping="Wrap" TextAlignment="Center" LineHeight="22" Opacity="0.95"/>
-                        </StackPanel>
-                    </Border>
+                    <Grid Grid.Row="0">
+                        <Border Background="Black" Margin="8 8 -8 -8"/>
+                        <Border Background="{StaticResource BrushElementBg}" BorderBrush="Black" BorderThickness="4" Padding="25">
+                            <StackPanel>
+                                <TextBlock Text="{Binding GameName}" Foreground="White" FontSize="36" FontWeight="Black" HorizontalAlignment="Center" Margin="0 0 0 15"/>
+                                <TextBlock Text="Place elements carefully following the unique constraints of the puzzle rules. Ensure complete logic synchronization across rows and structural boundaries." 
+                                           Foreground="White" FontSize="15" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center" LineHeight="22" Opacity="0.95"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
 
                     <Grid Grid.Row="1" Margin="0 20 0 0">
                         <Grid.ColumnDefinitions>
@@ -44,88 +47,101 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.Column="0" Background="{StaticResource BrushElementBg}" CornerRadius="18" Margin="0 0 10 0" Padding="12">
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock Text="MOVE" Foreground="{StaticResource BrushWhite}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Opacity="0.7"/>
-                                <TextBlock Text="{Binding MoveCount}" Foreground="{StaticResource BrushWhite}" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 4 0 0"/>
-                            </StackPanel>
-                        </Border>
+                        <Grid Grid.Column="0" Margin="0 0 10 0">
+                            <Border Background="Black" Margin="6 6 -6 -6"/>
+                            <Border Background="{StaticResource BrushElementBg}" BorderBrush="Black" BorderThickness="4" Padding="12">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock Text="MOVE" Foreground="White" FontSize="15" FontWeight="Black" HorizontalAlignment="Center" Opacity="0.9"/>
+                                    <TextBlock Text="{Binding MoveCount}" Foreground="White" FontSize="26" FontWeight="Black" HorizontalAlignment="Center" Margin="0 4 0 0"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
 
-                        <Border Grid.Column="1" Background="{StaticResource BrushElementBg}" CornerRadius="18" Margin="10 0 0 0" Padding="12">
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock Text="TIME" Foreground="{StaticResource BrushWhite}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Opacity="0.7"/>
-                                <TextBlock Text="{Binding TimeDisplay}" Foreground="{StaticResource BrushWhite}" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 4 0 0"/>
-                            </StackPanel>
-                        </Border>
+                        <Grid Grid.Column="1" Margin="10 0 0 0">
+                            <Border Background="Black" Margin="6 6 -6 -6"/>
+                            <Border Background="{StaticResource BrushElementBg}" BorderBrush="Black" BorderThickness="4" Padding="12">
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock Text="TIME" Foreground="White" FontSize="15" FontWeight="Black" HorizontalAlignment="Center" Opacity="0.9"/>
+                                    <TextBlock Text="{Binding TimeDisplay}" Foreground="White" FontSize="26" FontWeight="Black" HorizontalAlignment="Center" Margin="0 4 0 0"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
                     </Grid>
                 </Grid>
 
-                <Border Grid.Column="1" Background="{StaticResource BrushElementBg}" CornerRadius="20" Padding="20">
-                    <Viewbox Stretch="Uniform">
-                        <ItemsControl ItemsSource="{Binding Cells}">
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <UniformGrid Rows="{Binding GridSize}" Columns="{Binding GridSize}"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
+                <Grid Grid.Column="1">
+                    <Border Background="Black" Margin="10 10 -10 -10"/>
+                    <Border Background="{StaticResource BrushElementBg}" BorderBrush="Black" BorderThickness="4" Padding="20">
+                        <Viewbox Stretch="Uniform">
+                            <ItemsControl ItemsSource="{Binding Cells}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Rows="{Binding GridSize}" Columns="{Binding GridSize}"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
 
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate DataType="{x:Type vm:CellViewModel}">
-                                    <Button Command="{Binding LeftClickCommand}" Margin="3" Focusable="False">
-                                        <Button.InputBindings>
-                                            <MouseBinding MouseAction="RightClick" Command="{Binding RightClickCommand}"/>
-                                        </Button.InputBindings>
-                                        <Button.Template>
-                                            <ControlTemplate TargetType="Button">
-                                                <Border x:Name="CellContainer" Background="{StaticResource BrushCardBg}" CornerRadius="12" Width="72" Height="72">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type vm:CellViewModel}">
+                                        <Button Command="{Binding LeftClickCommand}" Margin="4" Focusable="False">
+                                            <Button.InputBindings>
+                                                <MouseBinding MouseAction="RightClick" Command="{Binding RightClickCommand}"/>
+                                            </Button.InputBindings>
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
                                                     <Grid>
-                                                        <Border Background="{Binding RegionColor}" CornerRadius="12" Opacity="0.5" IsHitTestVisible="False"/>
-                                                        <Ellipse x:Name="BulbNode" Width="36" Height="36" Fill="#FFDF6D" Visibility="Collapsed"/>
-                                                        <Ellipse x:Name="HitoriRing" Width="54" Height="54" Stroke="#FFDF6D" StrokeThickness="4" Fill="Transparent" Visibility="Collapsed"/>
-                                                        <TextBlock x:Name="ValueLabel" Text="{Binding DisplayValue}" Foreground="#1A2233" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                        <Border Background="Black" Margin="4 4 -4 -4"/>
+                                                        <Border x:Name="CellContainer" Background="#C8CDD8" BorderBrush="Black" BorderThickness="4" Width="72" Height="72">
+                                                            <Grid>
+                                                                <Border Background="{Binding RegionColor}" Opacity="0.5" IsHitTestVisible="False"/>
+                                                                <Ellipse x:Name="BulbNode" Width="36" Height="36" Fill="#FFDF6D" Stroke="Black" StrokeThickness="3" Visibility="Collapsed"/>
+                                                                <Ellipse x:Name="HitoriRing" Width="54" Height="54" Stroke="Black" StrokeThickness="4" Fill="Transparent" Visibility="Collapsed"/>
+                                                                <TextBlock x:Name="ValueLabel" Text="{Binding DisplayValue}" Foreground="Black" FontSize="28" FontWeight="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                            </Grid>
+                                                        </Border>
                                                     </Grid>
-                                                </Border>
-                                                <ControlTemplate.Triggers>
-                                                    <DataTrigger Binding="{Binding IsIlluminated}" Value="True">
-                                                        <Setter TargetName="CellContainer" Property="Background" Value="#BDC9D8"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding HasBulb}" Value="True">
-                                                        <Setter TargetName="BulbNode" Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding IsWall}" Value="True">
-                                                        <Setter TargetName="CellContainer" Property="Background" Value="#2A2F3D"/>
-                                                        <Setter TargetName="ValueLabel" Property="Text" Value="{Binding WallNumberText}"/>
-                                                        <Setter TargetName="ValueLabel" Property="Foreground" Value="White"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding IsBlackened}" Value="True">
-                                                        <Setter TargetName="CellContainer" Property="Background" Value="#2A2F3D"/>
-                                                        <Setter TargetName="ValueLabel" Property="Foreground" Value="#5C657A"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding IsCircled}" Value="True">
-                                                        <Setter TargetName="HitoriRing" Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                    <DataTrigger Binding="{Binding HasError}" Value="True">
-                                                        <Setter TargetName="ValueLabel" Property="Foreground" Value="#D94343"/>
-                                                    </DataTrigger>
-                                                    <MultiDataTrigger>
-                                                        <MultiDataTrigger.Conditions>
-                                                            <Condition Binding="{Binding HasBulb}" Value="True"/>
-                                                            <Condition Binding="{Binding HasError}" Value="True"/>
-                                                        </MultiDataTrigger.Conditions>
-                                                        <Setter TargetName="BulbNode" Property="Fill" Value="#D94343"/>
-                                                    </MultiDataTrigger>
-                                                    <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter TargetName="CellContainer" Property="Opacity" Value="0.85"/>
-                                                    </Trigger>
-                                                </ControlTemplate.Triggers>
-                                            </ControlTemplate>
-                                        </Button.Template>
-                                    </Button>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </Viewbox>
-                </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <DataTrigger Binding="{Binding IsIlluminated}" Value="True">
+                                                            <Setter TargetName="CellContainer" Property="Background" Value="{StaticResource BrushAccentLine}"/>
+                                                            <Setter TargetName="ValueLabel" Property="Foreground" Value="Black"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding HasBulb}" Value="True">
+                                                            <Setter TargetName="BulbNode" Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding IsWall}" Value="True">
+                                                            <Setter TargetName="CellContainer" Property="Background" Value="{StaticResource BrushBgDeep}"/>
+                                                            <Setter TargetName="ValueLabel" Property="Text" Value="{Binding WallNumberText}"/>
+                                                            <Setter TargetName="ValueLabel" Property="Foreground" Value="White"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding IsBlackened}" Value="True">
+                                                            <Setter TargetName="CellContainer" Property="Background" Value="{StaticResource BrushBgDeep}"/>
+                                                            <Setter TargetName="ValueLabel" Property="Foreground" Value="White"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding IsCircled}" Value="True">
+                                                            <Setter TargetName="HitoriRing" Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding HasError}" Value="True">
+                                                            <Setter TargetName="ValueLabel" Property="Foreground" Value="#D94343"/>
+                                                        </DataTrigger>
+                                                        <MultiDataTrigger>
+                                                            <MultiDataTrigger.Conditions>
+                                                                <Condition Binding="{Binding HasBulb}" Value="True"/>
+                                                                <Condition Binding="{Binding HasError}" Value="True"/>
+                                                            </MultiDataTrigger.Conditions>
+                                                            <Setter TargetName="BulbNode" Property="Fill" Value="#D94343"/>
+                                                        </MultiDataTrigger>
+                                                        <Trigger Property="IsPressed" Value="True">
+                                                            <Setter TargetName="CellContainer" Property="Margin" Value="4 4 -4 -4"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Viewbox>
+                    </Border>
+                </Grid>
             </Grid>
         </Grid>
     </Border>

@@ -5,23 +5,32 @@
 
     <Border Style="{StaticResource ModernWindowCard}" Width="560" HorizontalAlignment="Center" VerticalAlignment="Center">
         <StackPanel Margin="45">
-            <Border Background="{StaticResource BrushElementBg}" CornerRadius="20" Padding="25" Margin="0 0 0 40">
-                <TextBlock Text="YOU WIN!" Foreground="{StaticResource BrushWhite}" FontSize="46" FontWeight="Bold" HorizontalAlignment="Center"/>
-            </Border>
+            <Grid Margin="0 0 0 40">
+                <Border Background="Black" Margin="8 8 -8 -8"/>
+                <Border Background="{StaticResource BrushElementBg}" BorderBrush="Black" BorderThickness="4" Padding="25">
+                    <TextBlock Text="YOU WIN!" Foreground="White" FontSize="46" FontWeight="Black" HorizontalAlignment="Center"/>
+                </Border>
+            </Grid>
 
-            <Border Background="{StaticResource BrushElementBg}" CornerRadius="18" Padding="24 16" Margin="0 0 0 16">
-                <Grid>
-                    <TextBlock Text="MOVE" Foreground="{StaticResource BrushWhite}" FontSize="22" FontWeight="Bold" Opacity="0.7"/>
-                    <TextBlock Text="{Binding MoveDisplay}" Foreground="{StaticResource BrushWhite}" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right"/>
-                </Grid>
-            </Border>
+            <Grid Margin="0 0 0 16">
+                <Border Background="Black" Margin="6 6 -6 -6"/>
+                <Border Background="{StaticResource BrushElementBg}" BorderBrush="Black" BorderThickness="4" Padding="24 16">
+                    <Grid>
+                        <TextBlock Text="MOVE" Foreground="White" FontSize="22" FontWeight="Black"/>
+                        <TextBlock Text="{Binding MoveDisplay}" Foreground="White" FontSize="22" FontWeight="Black" HorizontalAlignment="Right"/>
+                    </Grid>
+                </Border>
+            </Grid>
 
-            <Border Background="{StaticResource BrushElementBg}" CornerRadius="18" Padding="24 16" Margin="0 0 0 45">
-                <Grid>
-                    <TextBlock Text="TIME" Foreground="{StaticResource BrushWhite}" FontSize="22" FontWeight="Bold" Opacity="0.7"/>
-                    <TextBlock Text="{Binding TimeDisplay}" Foreground="{StaticResource BrushWhite}" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right"/>
-                </Grid>
-            </Border>
+            <Grid Margin="0 0 0 45">
+                <Border Background="Black" Margin="6 6 -6 -6"/>
+                <Border Background="{StaticResource BrushElementBg}" BorderBrush="Black" BorderThickness="4" Padding="24 16">
+                    <Grid>
+                        <TextBlock Text="TIME" Foreground="White" FontSize="22" FontWeight="Black"/>
+                        <TextBlock Text="{Binding TimeDisplay}" Foreground="White" FontSize="22" FontWeight="Black" HorizontalAlignment="Right"/>
+                    </Grid>
+                </Border>
+            </Grid>
 
             <Grid>
                 <Grid.ColumnDefinitions>

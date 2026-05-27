@@ -22,37 +22,45 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0 0 60 0">
-                    <TextBlock Text="GAME" Foreground="{StaticResource BrushWhite}" FontSize="20" FontWeight="Bold" Margin="10 0 0 8"/>
-                    <Border Background="{StaticResource BrushElementBg}" CornerRadius="20" Height="76" Margin="0 0 0 30">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Content="&lt;" Style="{StaticResource ModernButton}" Width="56" Background="Transparent" Command="{Binding PrevGameCommand}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding GameName}" Foreground="{StaticResource BrushWhite}" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <Button Grid.Column="2" Content="&gt;" Style="{StaticResource ModernButton}" Width="56" Background="Transparent" Command="{Binding NextGameCommand}"/>
-                        </Grid>
-                    </Border>
+                    <TextBlock Text="GAME" Foreground="White" FontSize="20" FontWeight="Bold" Margin="10 0 0 8"/>
 
-                    <TextBlock Text="DIFFICULTY" Foreground="{StaticResource BrushWhite}" FontSize="20" FontWeight="Bold" Margin="10 0 0 8"/>
-                    <Border Background="{StaticResource BrushElementBg}" CornerRadius="20" Height="76">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Content="&lt;" Style="{StaticResource ModernButton}" Width="56" Background="Transparent" Command="{Binding ToggleDifficultyCommand}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding SelectedDifficultyText}" Foreground="{StaticResource BrushWhite}" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <Button Grid.Column="2" Content="&gt;" Style="{StaticResource ModernButton}" Width="56" Background="Transparent" Command="{Binding ToggleDifficultyCommand}"/>
-                        </Grid>
-                    </Border>
+                    <Grid Margin="0 0 0 30">
+                        <Border Background="Black" Margin="6 6 -6 -6"/>
+                        <Border Background="{StaticResource BrushElementBg}" BorderBrush="Black" BorderThickness="4" Height="76">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Content="&lt;" Style="{StaticResource ModernButton}" Width="56" Height="56" Margin="10 0 0 0" Padding="0" Command="{Binding PrevGameCommand}"/>
+                                <TextBlock Grid.Column="1" Text="{Binding GameName}" Foreground="White" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Button Grid.Column="2" Content="&gt;" Style="{StaticResource ModernButton}" Width="56" Height="56" Margin="0 0 10 0" Padding="0" Command="{Binding NextGameCommand}"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <TextBlock Text="DIFFICULTY" Foreground="White" FontSize="20" FontWeight="Bold" Margin="10 0 0 8"/>
+
+                    <Grid>
+                        <Border Background="Black" Margin="6 6 -6 -6"/>
+                        <Border Background="{StaticResource BrushElementBg}" BorderBrush="Black" BorderThickness="4" Height="76">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Content="&lt;" Style="{StaticResource ModernButton}" Width="56" Height="56" Margin="10 0 0 0" Padding="0" Command="{Binding ToggleDifficultyCommand}"/>
+                                <TextBlock Grid.Column="1" Text="{Binding SelectedDifficultyText}" Foreground="White" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Button Grid.Column="2" Content="&gt;" Style="{StaticResource ModernButton}" Width="56" Height="56" Margin="0 0 10 0" Padding="0" Command="{Binding ToggleDifficultyCommand}"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
                 </StackPanel>
 
                 <Button Grid.Column="1" Command="{Binding StartCommand}" Style="{StaticResource PlaySetupButton}" Width="260" Height="260">
-                    <Path Data="M 0,0 L 60,35 L 0,70 Z" Fill="Transparent" Stroke="{StaticResource BrushWhite}" StrokeThickness="6" Stretch="Fill" Width="70" Height="70" Margin="15 0 0 0"/>
+                    <Path Data="M 0,0 L 70,40 L 0,80 Z" Fill="White" Stroke="Black" StrokeThickness="6" Stretch="Fill" Width="80" Height="80" Margin="15 0 0 0"/>
                 </Button>
             </Grid>
         </Grid>

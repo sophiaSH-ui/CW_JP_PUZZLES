@@ -8,10 +8,10 @@
             <Button Content="BACK" Command="{Binding BackCommand}" Style="{StaticResource ModernButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="48" FontSize="16"/>
 
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="60 0" Width="760">
-                <TextBlock Text="MUSIC" Foreground="{StaticResource BrushWhite}" FontSize="32" FontWeight="Bold" Margin="0 0 0 15"/>
+                <TextBlock Text="MUSIC" Foreground="White" FontSize="32" FontWeight="Black" Margin="0 0 0 15"/>
                 <Slider Minimum="0" Maximum="1" Value="{Binding MusicVolume}" Style="{StaticResource ModernSlider}" Margin="0 0 0 50"/>
 
-                <TextBlock Text="SOUND FX" Foreground="{StaticResource BrushWhite}" FontSize="32" FontWeight="Bold" Margin="0 0 0 15"/>
+                <TextBlock Text="SOUND FX" Foreground="White" FontSize="32" FontWeight="Black" Margin="0 0 0 15"/>
                 <Slider Minimum="0" Maximum="1" Value="{Binding SfxVolume}" Style="{StaticResource ModernSlider}"/>
             </StackPanel>
         </Grid>

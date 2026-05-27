@@ -1,53 +1,95 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Color x:Key="ColorBgDeep">#161922</Color>
-    <Color x:Key="ColorCardBg">#94A4BA</Color>
-    <Color x:Key="ColorElementBg">#4E586E</Color>
-    <Color x:Key="ColorAccentLine">#32B5FF</Color>
-    <Color x:Key="ColorDestructive">#A28688</Color>
-    <Color x:Key="ColorWhite">#FFFFFF</Color>
-    <Color x:Key="ColorShadowDark">#0D0F14</Color>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="PixelColors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush x:Key="BrushBgDeep" Color="{StaticResource ColorBgDeep}"/>
-    <SolidColorBrush x:Key="BrushCardBg" Color="{StaticResource ColorCardBg}"/>
-    <SolidColorBrush x:Key="BrushElementBg" Color="{StaticResource ColorElementBg}"/>
-    <SolidColorBrush x:Key="BrushAccentLine" Color="{StaticResource ColorAccentLine}"/>
-    <SolidColorBrush x:Key="BrushDestructive" Color="{StaticResource ColorDestructive}"/>
-    <SolidColorBrush x:Key="BrushWhite" Color="{StaticResource ColorWhite}"/>
+    <SolidColorBrush x:Key="BrushCardBg" Color="{StaticResource ColorBgPanel}"/>
+    <SolidColorBrush x:Key="BrushElementBg" Color="{StaticResource ColorPurple}"/>
+    <SolidColorBrush x:Key="BrushAccentLine" Color="{StaticResource ColorCream}"/>
+    <SolidColorBrush x:Key="BrushWhite" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="BrushBlack" Color="#000000"/>
+    <SolidColorBrush x:Key="BrushDestructive" Color="{StaticResource ColorPurple}"/>
+
+    <DrawingBrush x:Key="BrutalTexture" Viewport="0,0,4,4" ViewportUnits="Absolute" TileMode="Tile">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Brush="{StaticResource BrushCardBg}">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0,4,4"/>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#1A000000">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="0,0,2,2"/>
+                            <RectangleGeometry Rect="2,2,2,2"/>
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="BrutalButtonTexture" Viewport="0,0,4,4" ViewportUnits="Absolute" TileMode="Tile">
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Brush="{StaticResource BrushElementBg}">
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0,4,4"/>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+                <GeometryDrawing Brush="#1A000000">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="0,0,2,2"/>
+                            <RectangleGeometry Rect="2,2,2,2"/>
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
 
     <Style x:Key="ModernWindowCard" TargetType="Border">
-        <Setter Property="Background" Value="{StaticResource BrushCardBg}"/>
-        <Setter Property="CornerRadius" Value="32"/>
+        <Setter Property="Background" Value="{StaticResource BrutalTexture}"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="BorderBrush" Value="{StaticResource BrushBlack}"/>
+        <Setter Property="BorderThickness" Value="4"/>
+        <Setter Property="Margin" Value="10"/>
         <Setter Property="Effect">
             <Setter.Value>
-                <DropShadowEffect Color="{StaticResource ColorShadowDark}" BlurRadius="25" Direction="270" ShadowDepth="8" Opacity="0.4"/>
+                <DropShadowEffect Color="#000000" BlurRadius="0" Direction="315" ShadowDepth="12" Opacity="1"/>
             </Setter.Value>
         </Setter>
     </Style>
 
     <Style x:Key="ModernButton" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource BrushElementBg}"/>
-        <Setter Property="Foreground" Value="{StaticResource BrushWhite}"/>
-        <Setter Property="FontSize" Value="22"/>
-        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Background" Value="{StaticResource BrutalButtonTexture}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Black"/>
         <Setter Property="Padding" Value="20 10"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="BtnBorder" Background="{TemplateBinding Background}" CornerRadius="18">
-                        <Border.Effect>
-                            <DropShadowEffect Color="{StaticResource ColorShadowDark}" BlurRadius="10" Direction="270" ShadowDepth="4" Opacity="0.2"/>
-                        </Border.Effect>
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
-                    </Border>
+                    <Grid>
+                        <Border Background="Black" Margin="6 6 -6 -6" BorderThickness="0" CornerRadius="0"/>
+                        <Border x:Name="BtnBorder" Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="4" CornerRadius="0">
+                            <ContentPresenter x:Name="BtnContent" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value="0.9"/>
+                            <Setter TargetName="BtnBorder" Property="Background" Value="{StaticResource BrushAccentLine}"/>
+                            <Setter Property="Foreground" Value="{StaticResource BrushBgDeep}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="BtnBorder" Property="Background" Value="#3D4556"/>
+                            <Setter TargetName="BtnBorder" Property="Margin" Value="6 6 -6 -6"/>
+                            <Setter TargetName="BtnBorder" Property="Background" Value="Black"/>
+                            <Setter Property="Foreground" Value="{StaticResource BrushAccentLine}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -56,26 +98,7 @@
     </Style>
 
     <Style x:Key="PlaySetupButton" TargetType="Button" BasedOn="{StaticResource ModernButton}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border x:Name="BtnBorder" Background="{TemplateBinding Background}" CornerRadius="40">
-                        <Border.Effect>
-                            <DropShadowEffect Color="{StaticResource ColorShadowDark}" BlurRadius="10" Direction="270" ShadowDepth="4" Opacity="0.2"/>
-                        </Border.Effect>
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value="0.9"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="BtnBorder" Property="Background" Value="#3D4556"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Background" Value="{StaticResource BrushAccentLine}"/>
     </Style>
 
     <Style x:Key="ModernSlider" TargetType="Slider">
@@ -84,31 +107,46 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Slider">
-                    <Grid Grid.RowSpan="3">
-                        <Border x:Name="TrackBackground" Background="#D0D7E1" CornerRadius="10" Height="20" VerticalAlignment="Center"/>
-                        <Track x:Name="PART_Track">
-                            <Track.DecreaseRepeatButton>
-                                <RepeatButton Command="{x:Static Slider.DecreaseLarge}">
-                                    <RepeatButton.Template>
-                                        <ControlTemplate TargetType="RepeatButton">
-                                            <Border Background="{StaticResource BrushElementBg}" CornerRadius="10 0 0 10" Height="20"/>
-                                        </ControlTemplate>
-                                    </RepeatButton.Template>
-                                </RepeatButton>
-                            </Track.DecreaseRepeatButton>
-                            <Track.Thumb>
-                                <Thumb Width="16" Height="28">
-                                    <Thumb.Template>
-                                        <ControlTemplate TargetType="Thumb">
-                                            <Border Background="{StaticResource BrushElementBg}" CornerRadius="6"/>
-                                        </ControlTemplate>
-                                    </Thumb.Template>
-                                </Thumb>
-                            </Track.Thumb>
-                        </Track>
+                    <Grid VerticalAlignment="Center">
+                        <Border Background="Black" Height="32" Margin="6 6 -6 -6"/>
+                        <Border x:Name="TrackBackground" Background="{StaticResource BrushBgDeep}" BorderBrush="Black" BorderThickness="4" Height="32">
+                            <Track x:Name="PART_Track">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}">
+                                        <RepeatButton.Template>
+                                            <ControlTemplate TargetType="RepeatButton">
+                                                <Border Background="{StaticResource BrushElementBg}" Height="24" VerticalAlignment="Center"/>
+                                            </ControlTemplate>
+                                        </RepeatButton.Template>
+                                    </RepeatButton>
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}">
+                                        <RepeatButton.Template>
+                                            <ControlTemplate TargetType="RepeatButton">
+                                                <Border Background="Transparent" />
+                                            </ControlTemplate>
+                                        </RepeatButton.Template>
+                                    </RepeatButton>
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Width="24" Height="56">
+                                        <Thumb.Template>
+                                            <ControlTemplate TargetType="Thumb">
+                                                <Grid>
+                                                    <Border Background="Black" Margin="4 4 -4 -4"/>
+                                                    <Border Background="White" BorderBrush="Black" BorderThickness="4"/>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Thumb.Template>
+                                    </Thumb>
+                                </Track.Thumb>
+                            </Track>
+                        </Border>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
 </ResourceDictionary>
