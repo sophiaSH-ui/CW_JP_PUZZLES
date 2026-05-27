@@ -9,7 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Config\" />
+    <Compile Remove="Resources\Config\**" />
+    <EmbeddedResource Remove="Resources\Config\**" />
+    <None Remove="Resources\Config\**" />
+    <Page Remove="Resources\Config\**" />
   </ItemGroup>
 
 </Project>

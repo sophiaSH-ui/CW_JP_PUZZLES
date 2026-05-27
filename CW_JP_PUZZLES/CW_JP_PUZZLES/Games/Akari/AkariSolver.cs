@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CW_JP_PUZZLES.Core.Cells;
 using CW_JP_PUZZLES.Core.Interfaces;
+using CW_JP_PUZZLES.Common;
 
 namespace CW_JP_PUZZLES.Games.Akari
 {
@@ -84,9 +85,9 @@ namespace CW_JP_PUZZLES.Games.Akari
         {
             if (IsConflicting(field, x, y, size)) return false;
 
-            foreach (var (nx, ny) in GetNeighbors(x, y))
+            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
             {
-                if (!InBounds(nx, ny, size)) continue;
+                if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
                 var wall = field[nx, ny];
                 if (!IsWall(wall) || wall.WallNumber < 0) continue;
                 if (CountBulbsAround(field, nx, ny, size) > wall.WallNumber)
@@ -136,7 +137,7 @@ namespace CW_JP_PUZZLES.Games.Akari
                     for (int dir = 0; dir < 4; dir++)
                     {
                         int nx = x + dx[dir], ny = y + dy[dir];
-                        while (InBounds(nx, ny, size) && !IsWall(field[nx, ny]))
+                        while (GridManager.IsInBounds(nx, ny, size, size) && !IsWall(field[nx, ny]))
                         {
                             lit[nx, ny] = true;
                             nx += dx[dir];
@@ -165,7 +166,7 @@ namespace CW_JP_PUZZLES.Games.Akari
             for (int dir = 0; dir < 4; dir++)
             {
                 int nx = x + dx[dir], ny = y + dy[dir];
-                while (InBounds(nx, ny, size) && !IsWall(field[nx, ny]))
+                while (GridManager.IsInBounds(nx, ny, size, size) && !IsWall(field[nx, ny]))
                 {
                     if (field[nx, ny].HasBulb) return true;
                     nx += dx[dir];
@@ -178,8 +179,8 @@ namespace CW_JP_PUZZLES.Games.Akari
         private int CountBulbsAround(AkariCell[,] field, int x, int y, int size)
         {
             int count = 0;
-            foreach (var (nx, ny) in GetNeighbors(x, y))
-                if (InBounds(nx, ny, size) && field[nx, ny].HasBulb)
+            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
+                if (GridManager.IsInBounds(nx, ny, size, size) && field[nx, ny].HasBulb)
                     count++;
             return count;
         }
@@ -201,9 +202,5 @@ namespace CW_JP_PUZZLES.Games.Akari
         }
 
         private static bool IsWall(AkariCell c) => c.IsLocked;
-        private static bool InBounds(int x, int y, int size) =>
-            x >= 0 && x < size && y >= 0 && y < size;
-        private static (int, int)[] GetNeighbors(int x, int y) =>
-            new[] { (x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1) };
     }
 }

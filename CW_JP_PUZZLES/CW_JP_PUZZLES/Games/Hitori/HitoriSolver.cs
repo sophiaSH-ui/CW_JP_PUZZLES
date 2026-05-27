@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using CW_JP_PUZZLES.Core.Cells;
 using CW_JP_PUZZLES.Core.Cells;
 using CW_JP_PUZZLES.Core.Interfaces;
+using CW_JP_PUZZLES.Common;
 
 namespace CW_JP_PUZZLES.Games.Hitori
 {
@@ -97,9 +99,8 @@ namespace CW_JP_PUZZLES.Games.Hitori
 
         private bool HasAdjacentBlack(HitoriCell[,] field, int x, int y, int size)
         {
-            (int, int)[] neighbors = { (x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y) };
-            foreach (var (nx, ny) in neighbors)
-                if (nx >= 0 && nx < size && ny >= 0 && ny < size && field[nx, ny].IsBlackened)
+            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
+                if (GridManager.IsInBounds(nx, ny, size, size) && field[nx, ny].IsBlackened)
                     return true;
             return false;
         }
@@ -130,10 +131,9 @@ namespace CW_JP_PUZZLES.Games.Hitori
                 var (x, y) = queue.Dequeue();
                 reachable++;
 
-                (int, int)[] neighbors = { (x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y) };
-                foreach (var (nx, ny) in neighbors)
+                foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
                 {
-                    if (nx < 0 || nx >= size || ny < 0 || ny >= size) continue;
+                    if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
                     if (visited[nx, ny] || field[nx, ny].IsBlackened) continue;
                     visited[nx, ny] = true;
                     queue.Enqueue((nx, ny));

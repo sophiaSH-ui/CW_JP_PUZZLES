@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using CW_JP_PUZZLES.Core.Cells;
 using CW_JP_PUZZLES.Core.Interfaces;
+using CW_JP_PUZZLES.Common;
 
 namespace CW_JP_PUZZLES.Games.Nurikabe
 {
@@ -10,10 +11,10 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
         {
             int size = field.GetLength(0);
 
-            return IslandSizesCorrect(field, size)
+            return NoTwoByTwoBlack(field, size)
+                && IslandSizesCorrect(field, size)
                 && IslandsNotTouching(field, size)
-                && RiverConnected(field, size)
-                && NoTwoByTwoBlack(field, size);
+                && RiverConnected(field, size);
         }
 
         public bool HasUniqueSolution(NurikabeCell[,] field)
@@ -96,9 +97,9 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                         islandSize++;
                         if (field[cx, cy].ClueValue > 0) clueCount++;
 
-                        foreach (var (nx, ny) in Neighbors(cx, cy))
+                        foreach (var (nx, ny) in GridManager.GetNeighbors(cx, cy))
                         {
-                            if (!InBounds(nx, ny, size)) continue;
+                            if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
                             if (visited[nx, ny] || field[nx, ny].IsBlack) continue;
                             visited[nx, ny] = true;
                             queue.Enqueue((nx, ny));
@@ -138,9 +139,9 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                     while (queue.Count > 0)
                     {
                         var (cx, cy) = queue.Dequeue();
-                        foreach (var (nx, ny) in Neighbors(cx, cy))
+                        foreach (var (nx, ny) in GridManager.GetNeighbors(cx, cy))
                         {
-                            if (!InBounds(nx, ny, size)) continue;
+                            if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
                             if (field[nx, ny].IsBlack || islandMap[nx, ny] >= 0) continue;
                             islandMap[nx, ny] = id;
                             queue.Enqueue((nx, ny));
@@ -153,9 +154,9 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                 for (int y = 0; y < size; y++)
                 {
                     if (field[x, y].IsBlack || islandMap[x, y] < 0) continue;
-                    foreach (var (nx, ny) in Neighbors(x, y))
+                    foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
                     {
-                        if (!InBounds(nx, ny, size)) continue;
+                        if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
                         if (field[nx, ny].IsBlack) continue;
                         if (islandMap[nx, ny] >= 0 && islandMap[nx, ny] != islandMap[x, y])
                             return false;
@@ -190,9 +191,9 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             {
                 var (x, y) = queue.Dequeue();
                 reached++;
-                foreach (var (nx, ny) in Neighbors(x, y))
+                foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
                 {
-                    if (!InBounds(nx, ny, size)) continue;
+                    if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
                     if (visited[nx, ny] || !field[nx, ny].IsBlack) continue;
                     visited[nx, ny] = true;
                     queue.Enqueue((nx, ny));
@@ -227,11 +228,5 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                     };
             return clone;
         }
-
-        private static (int, int)[] Neighbors(int x, int y) =>
-            new[] { (x, y - 1), (x, y + 1), (x - 1, y), (x + 1, y) };
-
-        private static bool InBounds(int x, int y, int size) =>
-            x >= 0 && x < size && y >= 0 && y < size;
     }
 }

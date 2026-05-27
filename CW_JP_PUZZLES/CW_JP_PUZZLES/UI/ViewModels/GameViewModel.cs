@@ -99,7 +99,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             {
                 _uiTimer.Stop();
                 SoundService.Instance.PlaySfx(SoundEffect.Navigate);
-                _main.NavigateToMenu();
+                _main.GoBackCommand.Execute(null);
             });
         }
 
