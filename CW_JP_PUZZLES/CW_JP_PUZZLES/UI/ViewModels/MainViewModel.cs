@@ -38,7 +38,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
         public void NavigateToDifficulty(string gameName)
         {
             SoundService.Instance.PlaySfx(SoundEffect.Navigate);
-            CurrentViewModel = new DifficultyViewModel(this, gameName);
+            CurrentViewModel = new GameSetupViewModel(this, gameName);
         }
 
         public void NavigateToGame(GameConfig config)

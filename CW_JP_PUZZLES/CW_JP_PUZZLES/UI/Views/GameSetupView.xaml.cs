@@ -11,13 +11,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 using System.Windows.Controls;
 
 namespace CW_JP_PUZZLES.UI.Views
 {
-    public partial class DifficultyView : UserControl
+    public partial class GameSetupView : UserControl
     {
-        public DifficultyView() => InitializeComponent();
+        public GameSetupView() => InitializeComponent();
     }
 }

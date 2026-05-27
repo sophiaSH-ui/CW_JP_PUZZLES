@@ -8,13 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using System.Windows;
 
 namespace CW_JP_PUZZLES.UI.Views
 {
-    public partial class MainWindow : Window
-    {
-        public MainWindow() => InitializeComponent();
-    }
+    public partial class MainWindow : Window { public MainWindow() => InitializeComponent(); }
 }

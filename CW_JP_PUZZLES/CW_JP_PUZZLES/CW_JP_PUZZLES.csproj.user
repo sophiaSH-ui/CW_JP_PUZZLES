@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="UI\Views\DifficultyView.xaml.cs">
+    <Compile Update="UI\Views\GameSetupView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UI\Views\GameBoardView.xaml.cs">
@@ -36,7 +36,7 @@
     <Page Update="Resources\Styles\PixelColors.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UI\Views\DifficultyView.xaml">
+    <Page Update="UI\Views\GameSetupView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Views\GameBoardView.xaml">

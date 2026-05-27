@@ -8,13 +8,13 @@ F:\курсова_2курс_2семестр\CW_JP_PUZZLES\CW_JP_PUZZLES\CW_JP_PU
 CW_JP_PUZZLES
 none
 false
-TRACE;DEBUG;NET;NET9_0;NETCOREAPP
+TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 F:\курсова_2курс_2семестр\CW_JP_PUZZLES\CW_JP_PUZZLES\CW_JP_PUZZLES\App.xaml
-9-1684720886
+101975258314
 
-50-1759201902
-201668129756
-MainWindow.xaml;Resources\Styles\ButtonStyles.xaml;Resources\Styles\CellStyles.xaml;Resources\Styles\PixelColors.xaml;UI\Views\DifficultyView.xaml;UI\Views\GameBoardView.xaml;UI\Views\MainMenuView.xaml;UI\Views\ResultView.xaml;UI\Views\SettingsView.xaml;
+50856682482
+200754226803
+MainWindow.xaml;Resources\Styles\ButtonStyles.xaml;Resources\Styles\CellStyles.xaml;Resources\Styles\ModernTheme.xaml;Resources\Styles\PixelColors.xaml;UI\Views\GameBoardView.xaml;UI\Views\GameSetupView.xaml;UI\Views\MainMenuView.xaml;UI\Views\ResultView.xaml;UI\Views\SettingsView.xaml;
 
 True
 

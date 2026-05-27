@@ -2,232 +2,131 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:CW_JP_PUZZLES.UI.ViewModels"
-             Background="{StaticResource BrushBgDeep}">
+             Background="Transparent">
 
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <Border Style="{StaticResource ModernWindowCard}">
+        <Grid Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="0 0 0 20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Grid.Column="0"
-                       Text="{Binding GameName}"
-                       FontFamily="Resources/Fonts/#Press Start 2P"
-                       FontSize="14"
-                       Foreground="{StaticResource BrushPink}"
-                       VerticalAlignment="Center"/>
-
-            <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                <TextBlock Text="TIME"
-                           FontFamily="Resources/Fonts/#Press Start 2P"
-                           FontSize="8"
-                           Foreground="{StaticResource BrushTextDim}"
-                           HorizontalAlignment="Center"/>
-                <TextBlock Text="{Binding TimeDisplay}"
-                           FontFamily="Resources/Fonts/#Press Start 2P"
-                           FontSize="20"
-                           Foreground="{StaticResource BrushCream}"
-                           HorizontalAlignment="Center"/>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Button Content="BACK" Command="{Binding BackCommand}" Style="{StaticResource ModernButton}" Width="110" Height="44" FontSize="15" Margin="0 0 12 0"/>
+                <Button Content="⚙" Command="{Binding ResetCommand}" Style="{StaticResource ModernButton}" Width="44" Height="44" FontSize="18" Padding="0" Margin="0 0 12 0"/>
+                <Button Content="⟳" Command="{Binding ResetCommand}" Style="{StaticResource ModernButton}" Width="44" Height="44" FontSize="20" Padding="0" Margin="0 0 12 0"/>
+                <Button Content="NEW GAME" Command="{Binding NewGameCommand}" Style="{StaticResource ModernButton}" Width="140" Height="44" FontSize="15"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="2" HorizontalAlignment="Right">
-                <TextBlock Text="MOVES"
-                           FontFamily="Resources/Fonts/#Press Start 2P"
-                           FontSize="8"
-                           Foreground="{StaticResource BrushTextDim}"
-                           HorizontalAlignment="Right"/>
-                <TextBlock Text="{Binding MoveCount}"
-                           FontFamily="Resources/Fonts/#Press Start 2P"
-                           FontSize="20"
-                           Foreground="{StaticResource BrushCream}"
-                           HorizontalAlignment="Right"/>
-            </StackPanel>
-        </Grid>
+            <Grid Grid.Row="1" Margin="0 25 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.85*"/>
+                    <ColumnDefinition Width="1.15*"/>
+                </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="1"
-                BorderBrush="{StaticResource BrushBlueShadow}"
-                BorderThickness="3"
-                Width="{Binding BoardPixelSize}"
-                Height="{Binding BoardPixelSize}"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                SnapsToDevicePixels="True">
+                <Grid Grid.Column="0" Margin="0 0 30 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-            <ItemsControl ItemsSource="{Binding Cells}"
-                          Width="{Binding BoardPixelSize}"
-                          Height="{Binding BoardPixelSize}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Rows="{Binding GridSize}"
-                                     Columns="{Binding GridSize}"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                    <Border Grid.Row="0" Background="{StaticResource BrushElementBg}" CornerRadius="20" Padding="25">
+                        <StackPanel>
+                            <TextBlock Text="{Binding GameName}" Foreground="{StaticResource BrushWhite}" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 0 0 15"/>
+                            <TextBlock Text="Place elements carefully following the unique constraints of the puzzle rules. Ensure complete logic synchronization across rows and structural boundaries." 
+                                       Foreground="{StaticResource BrushWhite}" FontSize="15" TextWrapping="Wrap" TextAlignment="Center" LineHeight="22" Opacity="0.95"/>
+                        </StackPanel>
+                    </Border>
 
-                <ItemsControl.ItemContainerStyle>
-                    <Style TargetType="ContentPresenter">
-                        <Setter Property="Width" Value="64"/>
-                        <Setter Property="Height" Value="64"/>
-                    </Style>
-                </ItemsControl.ItemContainerStyle>
+                    <Grid Grid.Row="1" Margin="0 20 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate DataType="{x:Type vm:CellViewModel}">
-                        <Button Width="64"
-                                Height="64"
-                                Command="{Binding LeftClickCommand}"
-                                SnapsToDevicePixels="True">
-                            <Button.InputBindings>
-                                <MouseBinding MouseAction="RightClick"
-                                              Command="{Binding RightClickCommand}"/>
-                            </Button.InputBindings>
+                        <Border Grid.Column="0" Background="{StaticResource BrushElementBg}" CornerRadius="18" Margin="0 0 10 0" Padding="12">
+                            <StackPanel HorizontalAlignment="Center">
+                                <TextBlock Text="MOVE" Foreground="{StaticResource BrushWhite}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Opacity="0.7"/>
+                                <TextBlock Text="{Binding MoveCount}" Foreground="{StaticResource BrushWhite}" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 4 0 0"/>
+                            </StackPanel>
+                        </Border>
 
-                            <Grid>
-                                <Ellipse Width="36" Height="36"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Center">
-                                    <Ellipse.Style>
-                                        <Style TargetType="Ellipse">
-                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                            <Setter Property="Fill" Value="{StaticResource BrushGold}"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding HasBulb}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-                                                <MultiDataTrigger>
-                                                    <MultiDataTrigger.Conditions>
-                                                        <Condition Binding="{Binding HasBulb}" Value="True"/>
-                                                        <Condition Binding="{Binding HasError}" Value="True"/>
-                                                    </MultiDataTrigger.Conditions>
-                                                    <Setter Property="Fill" Value="Red"/>
-                                                </MultiDataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Ellipse.Style>
-                                </Ellipse>
+                        <Border Grid.Column="1" Background="{StaticResource BrushElementBg}" CornerRadius="18" Margin="10 0 0 0" Padding="12">
+                            <StackPanel HorizontalAlignment="Center">
+                                <TextBlock Text="TIME" Foreground="{StaticResource BrushWhite}" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Opacity="0.7"/>
+                                <TextBlock Text="{Binding TimeDisplay}" Foreground="{StaticResource BrushWhite}" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Margin="0 4 0 0"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
 
-                                <Ellipse Width="52" Height="52"
-                                         Stroke="{StaticResource BrushGold}"
-                                         StrokeThickness="3"
-                                         Fill="Transparent"
-                                         HorizontalAlignment="Center"
-                                         VerticalAlignment="Center">
-                                    <Ellipse.Style>
-                                        <Style TargetType="Ellipse">
-                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding IsCircled}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Ellipse.Style>
-                                </Ellipse>
+                <Border Grid.Column="1" Background="{StaticResource BrushElementBg}" CornerRadius="20" Padding="20">
+                    <Viewbox Stretch="Uniform">
+                        <ItemsControl ItemsSource="{Binding Cells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Rows="{Binding GridSize}" Columns="{Binding GridSize}"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
 
-                                <TextBlock HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           FontSize="16"
-                                           FontFamily="Resources/Fonts/#Press Start 2P">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Setter Property="Text" Value="{Binding DisplayValue}"/>
-                                            <Setter Property="Foreground" Value="{StaticResource BrushCream}"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding ClueValue}" Value="">
-                                                    <Setter Property="Text" Value="{Binding DisplayValue}"/>
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{Binding IsWall}" Value="True">
-                                                    <Setter Property="Text" Value="{Binding WallNumberText}"/>
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{Binding HasError}" Value="True">
-                                                    <Setter Property="Foreground" Value="Red"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                            </Grid>
-
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="{StaticResource BrushBgCell}"/>
-                                    <Setter Property="Cursor" Value="Hand"/>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="{x:Type vm:CellViewModel}">
+                                    <Button Command="{Binding LeftClickCommand}" Margin="3" Focusable="False">
+                                        <Button.InputBindings>
+                                            <MouseBinding MouseAction="RightClick" Command="{Binding RightClickCommand}"/>
+                                        </Button.InputBindings>
+                                        <Button.Template>
                                             <ControlTemplate TargetType="Button">
-                                                <Border x:Name="Root"
-                                                        Background="{TemplateBinding Background}"
-                                                        BorderBrush="{StaticResource BrushBorder}"
-                                                        BorderThickness="2"
-                                                        SnapsToDevicePixels="True">
+                                                <Border x:Name="CellContainer" Background="{StaticResource BrushCardBg}" CornerRadius="12" Width="72" Height="72">
                                                     <Grid>
-                                                        <Rectangle Fill="{Binding RegionColor}" 
-                                                                   Opacity="0.4" 
-                                                                   IsHitTestVisible="False"/>
-                                                        <ContentPresenter HorizontalAlignment="Center"
-                                                                          VerticalAlignment="Center"/>
+                                                        <Border Background="{Binding RegionColor}" CornerRadius="12" Opacity="0.5" IsHitTestVisible="False"/>
+                                                        <Ellipse x:Name="BulbNode" Width="36" Height="36" Fill="#FFDF6D" Visibility="Collapsed"/>
+                                                        <Ellipse x:Name="HitoriRing" Width="54" Height="54" Stroke="#FFDF6D" StrokeThickness="4" Fill="Transparent" Visibility="Collapsed"/>
+                                                        <TextBlock x:Name="ValueLabel" Text="{Binding DisplayValue}" Foreground="#1A2233" FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                                     </Grid>
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <DataTrigger Binding="{Binding IsIlluminated}" Value="True">
-                                                        <Setter TargetName="Root" Property="Background"
-                                                                Value="{StaticResource BrushBlueShadow}"/>
+                                                        <Setter TargetName="CellContainer" Property="Background" Value="#BDC9D8"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding HasBulb}" Value="True">
+                                                        <Setter TargetName="BulbNode" Property="Visibility" Value="Visible"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding IsWall}" Value="True">
-                                                        <Setter TargetName="Root" Property="Background"
-                                                                Value="{StaticResource BrushDarkBrown}"/>
-                                                        <Setter TargetName="Root" Property="BorderBrush"
-                                                                Value="{StaticResource BrushBorderBright}"/>
+                                                        <Setter TargetName="CellContainer" Property="Background" Value="#2A2F3D"/>
+                                                        <Setter TargetName="ValueLabel" Property="Text" Value="{Binding WallNumberText}"/>
+                                                        <Setter TargetName="ValueLabel" Property="Foreground" Value="White"/>
                                                     </DataTrigger>
                                                     <DataTrigger Binding="{Binding IsBlackened}" Value="True">
-                                                        <Setter TargetName="Root" Property="Background"
-                                                                Value="{StaticResource BrushDarkBrown}"/>
+                                                        <Setter TargetName="CellContainer" Property="Background" Value="#2A2F3D"/>
+                                                        <Setter TargetName="ValueLabel" Property="Foreground" Value="#5C657A"/>
                                                     </DataTrigger>
+                                                    <DataTrigger Binding="{Binding IsCircled}" Value="True">
+                                                        <Setter TargetName="HitoriRing" Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding HasError}" Value="True">
+                                                        <Setter TargetName="ValueLabel" Property="Foreground" Value="#D94343"/>
+                                                    </DataTrigger>
+                                                    <MultiDataTrigger>
+                                                        <MultiDataTrigger.Conditions>
+                                                            <Condition Binding="{Binding HasBulb}" Value="True"/>
+                                                            <Condition Binding="{Binding HasError}" Value="True"/>
+                                                        </MultiDataTrigger.Conditions>
+                                                        <Setter TargetName="BulbNode" Property="Fill" Value="#D94343"/>
+                                                    </MultiDataTrigger>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter TargetName="Root" Property="BorderBrush"
-                                                                Value="{StaticResource BrushPink}"/>
-                                                    </Trigger>
-                                                    <Trigger Property="IsPressed" Value="True">
-                                                        <Setter TargetName="Root" Property="Background"
-                                                                Value="{StaticResource BrushPurple}"/>
+                                                        <Setter TargetName="CellContainer" Property="Opacity" Value="0.85"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </Button.Style>
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Border>
-
-        <StackPanel Grid.Row="2"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    Margin="0 20 0 0">
-            <Button Content="[ NEW ]"
-                    Command="{Binding NewGameCommand}"
-                    Style="{StaticResource PixelButtonSmall}"
-                    Margin="8 0"/>
-            <Button Content="[ RESET ]"
-                    Command="{Binding ResetCommand}"
-                    Style="{StaticResource PixelButtonSmall}"
-                    Margin="8 0"/>
-            <Button Content="[ MENU ]"
-                    Command="{Binding BackCommand}"
-                    Style="{StaticResource PixelButtonAccent}"
-                    FontSize="8"
-                    Padding="10 6"
-                    Margin="8 0"/>
-        </StackPanel>
-    </Grid>
+                                        </Button.Template>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Viewbox>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
 </UserControl>
