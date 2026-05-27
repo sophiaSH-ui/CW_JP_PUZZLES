@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -43,6 +43,15 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
         public string GameName => _config.GameName;
         public string Difficulty => _config.Difficulty.ToString();
+
+        public string GameRules => _config.GameName switch
+        {
+            "Akari" => "Place bulbs to illuminate all white cells. Bulbs shine horizontally and vertically to walls. Bulbs cannot illuminate each other. Wall numbers indicate adjacent bulbs.\nLMB: Place/Remove bulb.",
+            "Hitori" => "Blacken cells so no row or column has duplicates. Black cells cannot touch orthogonally. All unblackened cells must be connected.\nLMB: Blacken, RMB: Circle.",
+            "Shikaku" => "Divide the grid into rectangles. Each rectangle must contain exactly one number, which equals its area. Rectangles cannot overlap.\nLMB: Drag to create. RMB: Remove.",
+            "Nurikabe" => "Blacken cells to form a single continuous 'river' (no 2x2 black squares). Numbers indicate the size of white islands. Islands cannot touch orthogonally.\nLMB: Blacken, RMB: Clear.",
+            _ => ""
+        };
 
         public ICommand ResetCommand { get; }
         public ICommand BackCommand { get; }
