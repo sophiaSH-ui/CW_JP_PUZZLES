@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 using CW_JP_PUZZLES.Common;
@@ -14,6 +14,7 @@ namespace CW_JP_PUZZLES.UI.ViewModels
         private Difficulty _difficulty = Difficulty.Easy;
 
         public string GameName => _games[_gameIndex];
+        public string DisplayGameName => GameName.ToUpper();
         public Difficulty SelectedDifficulty
         {
             get => _difficulty;
@@ -38,8 +39,8 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             _main = main;
             _gameIndex = Math.Max(0, _games.IndexOf(gameName));
 
-            NextGameCommand = new RelayCommand(() => { _gameIndex = (_gameIndex + 1) % _games.Count; OnPropertyChanged(nameof(GameName)); });
-            PrevGameCommand = new RelayCommand(() => { _gameIndex = (_gameIndex - 1 + _games.Count) % _games.Count; OnPropertyChanged(nameof(GameName)); });
+            NextGameCommand = new RelayCommand(() => { _gameIndex = (_gameIndex + 1) % _games.Count; OnPropertyChanged(nameof(GameName)); OnPropertyChanged(nameof(DisplayGameName)); });
+            PrevGameCommand = new RelayCommand(() => { _gameIndex = (_gameIndex - 1 + _games.Count) % _games.Count; OnPropertyChanged(nameof(GameName)); OnPropertyChanged(nameof(DisplayGameName)); });
             ToggleDifficultyCommand = new RelayCommand(() => SelectedDifficulty = SelectedDifficulty == Difficulty.Easy ? Difficulty.Hard : Difficulty.Easy);
 
             StartCommand = new RelayCommand(() =>

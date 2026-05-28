@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,7 +68,19 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                 _ => MusicTrack.Menu
             };
             SoundService.Instance.PlayMusic(track);
-            if (CurrentViewModel != null) _viewHistory.Push(CurrentViewModel);
+
+            if (CurrentViewModel is ResultViewModel)
+            {
+                if (_viewHistory.Count > 0 && _viewHistory.Peek() is GameViewModel)
+                {
+                    _viewHistory.Pop();
+                }
+            }
+            else if (CurrentViewModel != null)
+            {
+                _viewHistory.Push(CurrentViewModel);
+            }
+
             CurrentViewModel = new GameViewModel(this, config);
         }
 
