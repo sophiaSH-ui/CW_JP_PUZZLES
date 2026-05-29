@@ -142,7 +142,6 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                     if (_shikakuStartPoint == null)
                     {
                         _shikakuStartPoint = (x, y);
-                        SoundService.Instance.PlaySfx(SoundEffect.Click);
                         return;
                     }
                     else
@@ -160,12 +159,9 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
             if (!moved)
             {
-                SoundService.Instance.PlaySfx(SoundEffect.Error);
                 _shikakuStartPoint = null;
                 return;
             }
-
-            SoundService.Instance.PlaySfx(action == "black" || action == "circle" ? SoundEffect.Place : SoundEffect.Remove);
 
             RefreshAllCells();
 

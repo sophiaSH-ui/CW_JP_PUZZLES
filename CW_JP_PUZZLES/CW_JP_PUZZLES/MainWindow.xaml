@@ -6,6 +6,7 @@
         Title="JAPANESE PUZZLES"
         Width="1024" Height="680"
         MinWidth="1024" MinHeight="680"
+        MaxWidth="1024" MaxHeight="680"
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource BrushBgDeep}"
         FontFamily="Segoe UI">

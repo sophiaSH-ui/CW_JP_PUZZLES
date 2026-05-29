@@ -68,9 +68,11 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             _musicVolume = current.MusicVolume;
             _sfxVolume = current.SfxVolume;
 
-            SaveCommand = new RelayCommand(() =>
+            SaveCommand = new RelayCommand(() => { });
+
+            BackCommand = new RelayCommand(() =>
             {
-                SoundService.Instance.PlaySfx(SoundEffect.Click);
+                SoundService.Instance.PlaySfx(SoundEffect.Navigate);
                 _onSave(new Settings
                 {
                     IsMusicEnabled = IsMusicEnabled,
@@ -78,12 +80,6 @@ namespace CW_JP_PUZZLES.UI.ViewModels
                     MusicVolume = MusicVolume,
                     SfxVolume = SfxVolume
                 });
-                _main.GoBackCommand.Execute(null);
-            });
-
-            BackCommand = new RelayCommand(() =>
-            {
-                SoundService.Instance.PlaySfx(SoundEffect.Navigate);
                 _main.GoBackCommand.Execute(null);
             });
         }

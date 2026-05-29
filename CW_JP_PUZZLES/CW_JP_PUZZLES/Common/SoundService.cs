@@ -1,10 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Media;
 using System.Windows.Media;
 
 namespace CW_JP_PUZZLES.Common
@@ -15,13 +11,13 @@ namespace CW_JP_PUZZLES.Common
         public static SoundService Instance => _instance ??= new SoundService();
 
         private readonly MediaPlayer _musicPlayer = new();
-        private float _musicVolume = 0.4f;
-        private float _sfxVolume = 0.8f;
+        private float _musicVolume = 0.5f;
+        private float _sfxVolume = 0.5f;
         private bool _isMusicEnabled = true;
         private bool _isSfxEnabled = true;
 
         private static readonly string SoundsDir =
-            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sounds");
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Sounds");
 
         private SoundService() { }
 
@@ -41,23 +37,20 @@ namespace CW_JP_PUZZLES.Common
         {
             if (!_isMusicEnabled) return;
 
-            string file = track switch
-            {
-                MusicTrack.Menu => "menu_theme.mp3",
-                MusicTrack.Akari => "akari_ambient.mp3",
-                MusicTrack.Hitori => "hitori_ambient.mp3",
-                MusicTrack.Shikaku => "shikaku_ambient.mp3",
-                MusicTrack.Nurikabe => "nurikabe_ambient.mp3",
-                _ => "menu_theme.mp3"
-            };
-
+            string file = "background.mp3";
             string path = Path.Combine(SoundsDir, file);
             if (!File.Exists(path)) return;
+
+            if (_musicPlayer.Source != null && 
+                _musicPlayer.Source.AbsolutePath.Equals(new Uri(path, UriKind.Absolute).AbsolutePath, StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
 
             _musicPlayer.Stop();
             _musicPlayer.Open(new Uri(path, UriKind.Absolute));
             _musicPlayer.Volume = _musicVolume;
-            _musicPlayer.MediaEnded += OnMusicEnded; // loop
+            _musicPlayer.MediaEnded += OnMusicEnded;
             _musicPlayer.Play();
         }
 
@@ -65,6 +58,7 @@ namespace CW_JP_PUZZLES.Common
         {
             _musicPlayer.Stop();
             _musicPlayer.MediaEnded -= OnMusicEnded;
+            _musicPlayer.Close();
         }
 
         public void SetMusicVolume(float volume)
@@ -79,30 +73,29 @@ namespace CW_JP_PUZZLES.Common
             _musicPlayer.Play();
         }
 
+        private readonly MediaPlayer _sfxPlayer = new();
+        private bool _sfxLoaded = false;
+
         public void PlaySfx(SoundEffect sfx)
         {
             if (!_isSfxEnabled) return;
 
-            string file = sfx switch
-            {
-                SoundEffect.Click => "click.wav",
-                SoundEffect.Place => "place.wav",
-                SoundEffect.Remove => "remove.wav",
-                SoundEffect.Error => "error.wav",
-                SoundEffect.Hint => "hint.wav",
-                SoundEffect.Victory => "victory.wav",
-                SoundEffect.Navigate => "navigate.wav",
-                _ => "click.wav"
-            };
+            if (sfx == SoundEffect.Place || sfx == SoundEffect.Remove || sfx == SoundEffect.Error)
+                return;
 
+            string file = "button click.mp3";
             string path = Path.Combine(SoundsDir, file);
             if (!File.Exists(path)) return;
 
-            Task.Run(() =>
+            if (!_sfxLoaded)
             {
-                using var player = new SoundPlayer(path);
-                player.PlaySync();
-            });
+                _sfxPlayer.Open(new Uri(path, UriKind.Absolute));
+                _sfxLoaded = true;
+            }
+            
+            _sfxPlayer.Volume = _sfxVolume * 0.3f; 
+            _sfxPlayer.Position = TimeSpan.Zero;
+            _sfxPlayer.Play();
         }
 
         public void SetSfxEnabled(bool enabled) => _isSfxEnabled = enabled;
@@ -112,7 +105,6 @@ namespace CW_JP_PUZZLES.Common
             if (!enabled) StopMusic();
         }
     }
-
-    public enum MusicTrack { Menu, Akari, Hitori, Shikaku, Nurikabe }
     public enum SoundEffect { Click, Place, Remove, Error, Hint, Victory, Navigate }
+    public enum MusicTrack { Menu, Akari, Hitori, Shikaku, Nurikabe }
 }

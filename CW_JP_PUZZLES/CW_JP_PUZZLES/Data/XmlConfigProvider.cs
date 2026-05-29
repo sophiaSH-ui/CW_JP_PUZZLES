@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +13,12 @@ namespace CW_JP_PUZZLES.Data
     {
         public static void SaveToFile<T>(T data, string filePath)
         {
+            var dir = Path.GetDirectoryName(filePath);
+            if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             using (StreamWriter writer = new StreamWriter(filePath))
             {

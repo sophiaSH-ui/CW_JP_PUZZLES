@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CW_JP_PUZZLES.Common.GameResult" Collapsed="true">
+    <Position X="17.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAACAAAAA=</HashCode>
+      <FileName>Common\GameResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Common.GameTimer" Collapsed="true">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQCAABAAAAAAAQAAAAAAABAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Common\GameTimer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Common.GridManager" Collapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Common\GridManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Common.SoundService" Collapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAFAABAEAAAAAAAggBAAAUAAAAAAAAAYAAgAAABQAA=</HashCode>
+      <FileName>Common\SoundService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Core.Cells.AkariCell" Collapsed="true">
+    <Position X="4.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAABAAAAAIAAAAAAAAAAAAIAAAAAAAAIAA=</HashCode>
+      <FileName>Core\Cells\AkariCell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Core.Cells.CellBase" Collapsed="true">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Core\Cells\CellBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Core.Cells.HitoriCell" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABBAAAAABAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Core\Cells\HitoriCell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Core.Cells.NurikabeCell" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAABAAAAAAACAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Core\Cells\NurikabeCell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Core.Cells.ShikakuCell" Collapsed="true">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAABAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Cells\ShikakuCell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Core.PuzzleBase" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAhAAAAAEAAAAAAAAAAgAAAAAAACCEAAA=</HashCode>
+      <FileName>Core\PuzzleBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Hitori.HitoriGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAARAIAAAABEAAAAACAAAAAAAAAAAAAkBAAAA=</HashCode>
+      <FileName>Games\Hitori\HitoriGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Hitori.HitoriSolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAABAAAAAAAEAAEgAAAAIAAAAAAIAAAAAEAQAAAA=</HashCode>
+      <FileName>Games\Hitori\HitoriSolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Hitori.HitoriGame" Collapsed="true">
+    <Position X="4.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAABBABAAAAIEAAAAAAAAAAgAEAAAAAACAAAA=</HashCode>
+      <FileName>Games\Hitori\HitorsGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Shikaku.ShikakuGame" Collapsed="true">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAABBAhAAAAIEAAAAAAAAAAgAEAAAAAACAAAA=</HashCode>
+      <FileName>Games\Shikaku\ShikakuGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Shikaku.ShikakuGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAARAQAAAAAAAAAAgCAAAAAAAAAAAAAEAggAA=</HashCode>
+      <FileName>Games\Shikaku\ShikakuGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Shikaku.ShikakuSolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQBAAAAAACAAAAgAAAAIAAQAAAAAAEQAAABAAAA=</HashCode>
+      <FileName>Games\Shikaku\ShikakuSolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Nurikabe.NurikabeGame" Collapsed="true">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAABBABAAAAIEAAAAAAAAACgAEAAAAAACAAAA=</HashCode>
+      <FileName>Games\Nurikabe\NurikabeGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Nurikabe.NurikabeGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAARAAAAAEggAAAAgCAAAAAAQAAAAAAUBAAAA=</HashCode>
+      <FileName>Games\Nurikabe\NurikabeGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Nurikabe.NurikabeSolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACBAAQAAAAAAAAgAAAIIAAIAAAAAAAAAAABAAQA=</HashCode>
+      <FileName>Games\Nurikabe\NurikabeSolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Akari.AkariGame" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAABBABAAEAIEAAAAgACAAAgAEAAAAAACAAAA=</HashCode>
+      <FileName>Games\Akari\AkariGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Akari.AkariGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAARAAAAAAAAAAACAQQCIAAAAIAAAAAEAAIAA=</HashCode>
+      <FileName>Games\Akari\AkariGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Games.Akari.AkariSolver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAABAAgAAAAIACABgAAAAABQAABAACA=</HashCode>
+      <FileName>Games\Akari\AkariSolver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CW_JP_PUZZLES.Data.XmlConfigProvider" Collapsed="true">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Data\XmlConfigProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CW_JP_PUZZLES.Core.Interfaces.IGame" Collapsed="true">
+    <Position X="14" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAEAAAAAAAAAAgAAAAAAAACAAAA=</HashCode>
+      <FileName>Core\Interfaces\IGame.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CW_JP_PUZZLES.Core.Interfaces.IGenerator&lt;T&gt;" Collapsed="true">
+    <Position X="15.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Core\Interfaces\IGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CW_JP_PUZZLES.Core.Interfaces.ISolver&lt;T&gt;" Collapsed="true">
+    <Position X="17.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Interfaces\ISolver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="CW_JP_PUZZLES.Common.Difficulty" Collapsed="true">
+    <Position X="14" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Common\Difficulty.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

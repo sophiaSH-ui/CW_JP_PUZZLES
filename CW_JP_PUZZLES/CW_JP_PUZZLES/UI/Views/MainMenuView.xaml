@@ -7,7 +7,7 @@
         <Grid>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="420">
                 <Button Command="{Binding SelectGameCommand}" CommandParameter="Akari" Style="{StaticResource ModernButton}" Height="120" Margin="0 0 0 25">
-                    <Border BorderBrush="{StaticResource BrushAccentLine}" BorderThickness="0 0 0 4" Padding="0 0 0 8">
+                    <Border BorderBrush="{StaticResource BrushAccentLine}" BorderThickness="0 0 0 0" Padding="0 0 0 8">
                         <TextBlock Text="PLAY" FontSize="56" FontWeight="Bold"/>
                     </Border>
                 </Button>

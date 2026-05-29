@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -13,6 +13,20 @@
     <EmbeddedResource Remove="Resources\Config\**" />
     <None Remove="Resources\Config\**" />
     <Page Remove="Resources\Config\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Sounds\background.mp3" />
+    <None Remove="Sounds\button click.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sounds\background.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\button click.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
