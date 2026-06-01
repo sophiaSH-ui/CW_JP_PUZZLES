@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -110,9 +110,13 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
         private static readonly string[] RegionColors =
         {
-    "#4A90E2", "#50E3C2", "#F5A623", "#D0021B",
-    "#BD10E0", "#7ED321", "#F8E71C", "#8B572A"
-};
+            "#4A90E2", "#E8476A", "#2ECC71", "#F5A623",
+            "#9B59B6", "#1ABC9C", "#E74C3C", "#3498DB",
+            "#F39C12", "#A8E063", "#FF6B9D", "#50E3C2",
+            "#5D4E75", "#FF8C42", "#6BCB77", "#4D9DE0",
+            "#E15554", "#F4E04D", "#7B2D8B", "#00B4D8",
+            "#C77DFF", "#80B918", "#FF477E", "#48CAE4"
+        };
 
         private int _islandId = -1;
         public int IslandId

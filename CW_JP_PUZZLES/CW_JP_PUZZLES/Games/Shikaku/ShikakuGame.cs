@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using CW_JP_PUZZLES.Common;
 using CW_JP_PUZZLES.Core;
 using CW_JP_PUZZLES.Core.Cells;
@@ -45,11 +46,11 @@ namespace CW_JP_PUZZLES.Games.Shikaku
             if (clueCount != 1) return false;
             if (clueValue != regionArea) return false;
 
-            int newRegionId = GetNextRegionId();
             for (int rx = x1; rx <= x2; rx++)
                 for (int ry = y1; ry <= y2; ry++)
                     if (_grid[rx, ry].RegionId >= 0) return false;
 
+            int newRegionId = GetNextRegionId(x1, y1, x2, y2);
             for (int rx = x1; rx <= x2; rx++)
                 for (int ry = y1; ry <= y2; ry++)
                     _grid[rx, ry].RegionId = newRegionId;
@@ -96,14 +97,54 @@ namespace CW_JP_PUZZLES.Games.Shikaku
         private bool IsInBounds(int x, int y) =>
             GridManager.IsInBounds(x, y, Size, Size);
 
-        private int GetNextRegionId()
+        private int GetNextRegionId(int x1, int y1, int x2, int y2)
         {
-            int max = -1;
+            const int colorCount = 24;
+
+            var neighborColors = new HashSet<int>();
+            for (int rx = x1; rx <= x2; rx++)
+                foreach (int ry in new[] { y1 - 1, y2 + 1 })
+                {
+                    if (!GridManager.IsInBounds(rx, ry, Size, Size)) continue;
+                    int rid = _grid[rx, ry].RegionId;
+                    if (rid >= 0) neighborColors.Add(rid % colorCount);
+                }
+            for (int ry = y1; ry <= y2; ry++)
+                foreach (int rx in new[] { x1 - 1, x2 + 1 })
+                {
+                    if (!GridManager.IsInBounds(rx, ry, Size, Size)) continue;
+                    int rid = _grid[rx, ry].RegionId;
+                    if (rid >= 0) neighborColors.Add(rid % colorCount);
+                }
+
+            var usedColors = new HashSet<int>();
             for (int x = 0; x < Size; x++)
                 for (int y = 0; y < Size; y++)
-                    if (_grid[x, y].RegionId > max)
-                        max = _grid[x, y].RegionId;
-            return max + 1;
+                    if (_grid[x, y].RegionId >= 0)
+                        usedColors.Add(_grid[x, y].RegionId % colorCount);
+
+            int targetColor = -1;
+            for (int c = 0; c < colorCount; c++)
+                if (!neighborColors.Contains(c) && !usedColors.Contains(c))
+                { targetColor = c; break; }
+
+            if (targetColor < 0)
+                for (int c = 0; c < colorCount; c++)
+                    if (!neighborColors.Contains(c))
+                    { targetColor = c; break; }
+
+            if (targetColor < 0) targetColor = 0;
+
+            int maxId = -1;
+            for (int x = 0; x < Size; x++)
+                for (int y = 0; y < Size; y++)
+                    if (_grid[x, y].RegionId > maxId)
+                        maxId = _grid[x, y].RegionId;
+
+            int nextId = maxId + 1;
+            while (nextId % colorCount != targetColor) nextId++;
+            return nextId;
         }
+
     }
 }

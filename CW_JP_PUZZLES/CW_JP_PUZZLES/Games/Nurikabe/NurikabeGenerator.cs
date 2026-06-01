@@ -22,24 +22,79 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                 _ => (4, 4)
             };
 
-            NurikabeCell[,] field = BuildPuzzle(size, islandCount, maxIslandSize);
+            NurikabeCell[,]? fallbackField = null;
             int attempts = 0;
 
-            while (attempts < 5)
+            while (attempts < 15)
             {
+                NurikabeCell[,] field = BuildPuzzle(size, islandCount, maxIslandSize);
+
+                if (!IsStructurallySound(field, size))
+                {
+                    attempts++;
+                    continue;
+                }
+
+                if (fallbackField == null)
+                    fallbackField = CloneField(field, size);
+
                 var testField = CloneField(field, size);
                 var task = Task.Run(() => _solver.HasUniqueSolution(testField));
 
-                if (task.Wait(TimeSpan.FromMilliseconds(200)))
+                if (task.Wait(TimeSpan.FromMilliseconds(300)))
                 {
                     if (task.Result) return field;
                 }
 
-                field = BuildPuzzle(size, islandCount, maxIslandSize);
                 attempts++;
             }
 
-            return field;
+            return fallbackField ?? BuildPuzzle(size, islandCount, maxIslandSize);
+        }
+
+        private bool IsStructurallySound(NurikabeCell[,] field, int size)
+        {
+            (int sx, int sy) = (-1, -1);
+            int totalBlack = 0;
+            for (int x = 0; x < size; x++)
+                for (int y = 0; y < size; y++)
+                    if (field[x, y].IsBlack)
+                    {
+                        totalBlack++;
+                        if (sx == -1) { sx = x; sy = y; }
+                    }
+
+            if (totalBlack > 0)
+            {
+                var visited = new bool[size, size];
+                var queue = new Queue<(int, int)>();
+                queue.Enqueue((sx, sy));
+                visited[sx, sy] = true;
+                int reached = 0;
+                while (queue.Count > 0)
+                {
+                    var (x, y) = queue.Dequeue();
+                    reached++;
+                    foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
+                    {
+                        if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
+                        if (visited[nx, ny] || !field[nx, ny].IsBlack) continue;
+                        visited[nx, ny] = true;
+                        queue.Enqueue((nx, ny));
+                    }
+                }
+                if (reached != totalBlack) return false; 
+            }
+
+            for (int x = 0; x < size; x++)
+                for (int y = 0; y < size; y++)
+                {
+                    if (field[x, y].IsBlack) continue;
+                    if (field[x, y].ClueValue > 0) continue;
+                    if (field[x, y].IslandId < 0) return false;
+                }
+
+            return true;
         }
 
         private NurikabeCell[,] BuildPuzzle(int size, int islandCount, int maxIslandSize)
