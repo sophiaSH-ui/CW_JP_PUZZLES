@@ -1,16 +1,23 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using CW_JP_PUZZLES.Common;
 using CW_JP_PUZZLES.Core;
 using CW_JP_PUZZLES.Core.Cells;
+using CW_JP_PUZZLES.Core.Interfaces;
 
 namespace CW_JP_PUZZLES.Games.Hitori
 {
     public class HitoriGame : PuzzleBase
     {
         private HitoriCell[,] _grid = null!;
-        private readonly HitoriSolver _solver = new();
-        private readonly HitoriGenerator _generator = new();
+        private readonly ISolver<HitoriCell> _solver;
+        private readonly IGenerator<HitoriCell> _generator;
+
+        public HitoriGame(ISolver<HitoriCell> solver, IGenerator<HitoriCell> generator)
+        {
+            _solver = solver;
+            _generator = generator;
+        }
 
         public HitoriCell[,] Grid => _grid;
 

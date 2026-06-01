@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +13,14 @@ namespace CW_JP_PUZZLES.Games.Akari
     public class AkariGame : PuzzleBase
     {
         private AkariCell[,] _grid = null!;
-        private readonly AkariSolver _solver = new();
-        private readonly AkariGenerator _generator = new();
+        private readonly ISolver<AkariCell> _solver;
+        private readonly IGenerator<AkariCell> _generator;
+
+        public AkariGame(ISolver<AkariCell> solver, IGenerator<AkariCell> generator)
+        {
+            _solver = solver;
+            _generator = generator;
+        }
 
         public AkariCell[,] Grid => _grid;
         public override void GenerateField(int size, Difficulty difficulty)

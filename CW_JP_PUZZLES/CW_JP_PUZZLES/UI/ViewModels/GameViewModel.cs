@@ -105,10 +105,10 @@ namespace CW_JP_PUZZLES.UI.ViewModels
 
         private static PuzzleBase CreateGame(string name) => name switch
         {
-            "Akari" => new AkariGame(),
-            "Hitori" => new HitoriGame(),
-            "Shikaku" => new ShikakuGame(),
-            "Nurikabe" => new NurikabeGame(),
+            "Akari" => new AkariGame(new AkariSolver(), new AkariGenerator()),
+            "Hitori" => new HitoriGame(new HitoriSolver(), new HitoriGenerator()),
+            "Shikaku" => new ShikakuGame(new ShikakuSolver(), new ShikakuGenerator()),
+            "Nurikabe" => new NurikabeGame(new NurikabeSolver(), new NurikabeGenerator()),
             _ => throw new ArgumentException($"Невідома гра: {name}")
         };
 

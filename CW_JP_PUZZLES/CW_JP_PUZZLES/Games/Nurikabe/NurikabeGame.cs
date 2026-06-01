@@ -1,15 +1,22 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using CW_JP_PUZZLES.Common;
 using CW_JP_PUZZLES.Core;
+using CW_JP_PUZZLES.Core;
 using CW_JP_PUZZLES.Core.Cells;
-
+using CW_JP_PUZZLES.Core.Interfaces;
 namespace CW_JP_PUZZLES.Games.Nurikabe
 {
     public class NurikabeGame : PuzzleBase
     {
         private NurikabeCell[,] _grid = null!;
-        private readonly NurikabeSolver _solver = new();
-        private readonly NurikabeGenerator _generator = new();
+        private readonly ISolver<NurikabeCell> _solver;
+        private readonly IGenerator<NurikabeCell> _generator;
+
+        public NurikabeGame(ISolver<NurikabeCell> solver, IGenerator<NurikabeCell> generator)
+        {
+            _solver = solver;
+            _generator = generator;
+        }
 
         public NurikabeCell[,] Grid => _grid;
 

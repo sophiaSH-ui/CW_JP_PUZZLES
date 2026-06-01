@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using CW_JP_PUZZLES.Common;
 using CW_JP_PUZZLES.Core;
 using CW_JP_PUZZLES.Core.Cells;
+using CW_JP_PUZZLES.Core.Interfaces;
 
 namespace CW_JP_PUZZLES.Games.Shikaku
 {
     public class ShikakuGame : PuzzleBase
     {
         private ShikakuCell[,] _grid = null!;
-        private readonly ShikakuSolver _solver = new();
-        private readonly ShikakuGenerator _generator = new();
+        private readonly ISolver<ShikakuCell> _solver;
+        private readonly IGenerator<ShikakuCell> _generator;
+
+        public ShikakuGame(ISolver<ShikakuCell> solver, IGenerator<ShikakuCell> generator)
+        {
+            _solver = solver;
+            _generator = generator;
+        }
 
         public ShikakuCell[,] Grid => _grid;
 
