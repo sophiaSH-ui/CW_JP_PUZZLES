@@ -15,118 +15,110 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
 
         public NurikabeCell[,] Generate(int size, Difficulty difficulty)
         {
-            var (islandCount, maxIslandSize) = difficulty switch
+            var (islandCount, minIslandSize, maxIslandSize) = (size, difficulty) switch
             {
-                Difficulty.Easy => (4, 4),
-                Difficulty.Hard => (6, 5),
-                _ => (4, 4)
+                (5, Difficulty.Easy) => (4, 2, 4),
+                (5, Difficulty.Hard) => (4, 2, 4),
+                (7, Difficulty.Easy) => (6, 3, 5),
+                (7, Difficulty.Hard) => (8, 3, 5),
+                _ => (4, 2, 4)
             };
 
-            NurikabeCell[,]? fallbackField = null;
-            int attempts = 0;
-
-            while (attempts < 15)
+            for (int attempt = 0; attempt < 25; attempt++)
             {
-                NurikabeCell[,] field = BuildPuzzle(size, islandCount, maxIslandSize);
+                var solution = BuildSolutionField(size, islandCount, minIslandSize, maxIslandSize);
+                if (solution == null) continue;
+                if (!_solver.IsValid(solution)) continue;
 
-                if (!IsStructurallySound(field, size))
-                {
-                    attempts++;
-                    continue;
-                }
-
-                if (fallbackField == null)
-                    fallbackField = CloneField(field, size);
-
-                var testField = CloneField(field, size);
+                var puzzle = StripForPlayer(solution, size);
+                var testField = CloneField(puzzle, size);
                 var task = Task.Run(() => _solver.HasUniqueSolution(testField));
 
-                if (task.Wait(TimeSpan.FromMilliseconds(300)))
+                if (task.Wait(TimeSpan.FromMilliseconds(size <= 5 ? 300 : 600)))
                 {
-                    if (task.Result) return field;
+                    if (task.Result) return puzzle;
                 }
-
-                attempts++;
             }
 
-            return fallbackField ?? BuildPuzzle(size, islandCount, maxIslandSize);
+            for (int attempt = 0; attempt < 60; attempt++)
+            {
+                var solution = BuildSolutionField(size, islandCount, minIslandSize, maxIslandSize);
+                if (solution != null && _solver.IsValid(solution))
+                    return StripForPlayer(solution, size);
+            }
+
+            int fallbackCount = Math.Max(3, islandCount - 2);
+            int fallbackMin = 3;
+            int fallbackMax = Math.Min(size, maxIslandSize + 1);
+            for (int attempt = 0; attempt < 60; attempt++)
+            {
+                var solution = BuildSolutionField(size, fallbackCount, fallbackMin, fallbackMax);
+                if (solution != null && _solver.IsValid(solution))
+                    return StripForPlayer(solution, size);
+            }
+
+            for (int attempt = 0; attempt < 200; attempt++)
+            {
+                var solution = BuildSolutionField(size, 3, 3, size);
+                if (solution != null && _solver.IsValid(solution))
+                    return StripForPlayer(solution, size);
+            }
+
+            return BuildEmergencyPuzzle(size);
         }
 
-        private bool IsStructurallySound(NurikabeCell[,] field, int size)
+        private NurikabeCell[,]? BuildSolutionField(int size, int islandCount, int minIslandSize, int maxIslandSize)
         {
-            (int sx, int sy) = (-1, -1);
-            int totalBlack = 0;
+            var field = new NurikabeCell[size, size];
             for (int x = 0; x < size; x++)
                 for (int y = 0; y < size; y++)
-                    if (field[x, y].IsBlack)
-                    {
-                        totalBlack++;
-                        if (sx == -1) { sx = x; sy = y; }
-                    }
+                    field[x, y] = new NurikabeCell { X = x, Y = y, IsBlack = true };
 
-            if (totalBlack > 0)
-            {
-                var visited = new bool[size, size];
-                var queue = new Queue<(int, int)>();
-                queue.Enqueue((sx, sy));
-                visited[sx, sy] = true;
-                int reached = 0;
-                while (queue.Count > 0)
-                {
-                    var (x, y) = queue.Dequeue();
-                    reached++;
-                    foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
-                    {
-                        if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
-                        if (visited[nx, ny] || !field[nx, ny].IsBlack) continue;
-                        visited[nx, ny] = true;
-                        queue.Enqueue((nx, ny));
-                    }
-                }
-                if (reached != totalBlack) return false; 
-            }
+            if (!PlaceIslands(field, size, islandCount, minIslandSize, maxIslandSize))
+                return null;
+
+            if (!FixTwoByTwo(field, size, maxIslandSize))
+                return null;
 
             for (int x = 0; x < size; x++)
                 for (int y = 0; y < size; y++)
                 {
                     if (field[x, y].IsBlack) continue;
-                    if (field[x, y].ClueValue > 0) continue;
-                    if (field[x, y].IslandId < 0) return false;
+                    if (field[x, y].IslandId < 0) return null;
                 }
-
-            return true;
-        }
-
-        private NurikabeCell[,] BuildPuzzle(int size, int islandCount, int maxIslandSize)
-        {
-            var field = new NurikabeCell[size, size];
-            for (int x = 0; x < size; x++)
-                for (int y = 0; y < size; y++)
-                {
-                    field[x, y] = new NurikabeCell { X = x, Y = y, IsBlack = true };
-                }
-
-            bool success = PlaceIslands(field, size, islandCount, maxIslandSize);
-            if (!success) return field;
-
-            FixTwoByTwo(field, size);
-            FinalizeForPlayer(field, size);
 
             return field;
         }
 
-        private bool PlaceIslands(NurikabeCell[,] field, int size, int islandCount, int maxIslandSize)
+        private NurikabeCell[,] StripForPlayer(NurikabeCell[,] solution, int size)
+        {
+            var puzzle = CloneField(solution, size);
+            for (int x = 0; x < size; x++)
+                for (int y = 0; y < size; y++)
+                {
+                    if (!puzzle[x, y].IsLocked)
+                    {
+                        puzzle[x, y].IsBlack = false;
+                        puzzle[x, y].IslandId = -1;
+                    }
+                }
+            return puzzle;
+        }
+
+        private bool PlaceIslands(NurikabeCell[,] field, int size, int islandCount, int minIslandSize, int maxIslandSize)
         {
             int totalCells = size * size;
             var positions = Enumerable.Range(0, totalCells).OrderBy(_ => _rng.Next()).ToList();
             var islandSeeds = new List<(int x, int y)>();
+
+            int minDist = size <= 5 ? 3 : 3;
 
             foreach (int pos in positions)
             {
                 if (islandSeeds.Count >= islandCount) break;
 
                 int x = pos / size, y = pos % size;
-                bool tooClose = islandSeeds.Any(s => Math.Abs(s.x - x) + Math.Abs(s.y - y) < 3);
+                bool tooClose = islandSeeds.Any(s => Math.Abs(s.x - x) + Math.Abs(s.y - y) < minDist);
 
                 if (!tooClose) islandSeeds.Add((x, y));
             }
@@ -136,7 +128,7 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             int islandId = 0;
             foreach (var (sx, sy) in islandSeeds)
             {
-                int targetSize = _rng.Next(2, maxIslandSize + 1);
+                int targetSize = _rng.Next(minIslandSize, maxIslandSize + 1);
                 GrowIsland(field, size, sx, sy, targetSize, islandId);
                 islandId++;
             }
@@ -196,10 +188,12 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
             return true;
         }
 
-        private void FixTwoByTwo(NurikabeCell[,] field, int size)
+        private bool FixTwoByTwo(NurikabeCell[,] field, int size, int maxIslandSize = 6)
         {
+            int maxPasses = size * size * 2;
             bool changed = true;
-            while (changed)
+
+            while (changed && maxPasses-- > 0)
             {
                 changed = false;
                 for (int x = 0; x < size - 1; x++)
@@ -209,55 +203,196 @@ namespace CW_JP_PUZZLES.Games.Nurikabe
                             !field[x, y + 1].IsBlack || !field[x + 1, y + 1].IsBlack)
                             continue;
 
-                        var candidates = new[] { (x, y), (x + 1, y), (x, y + 1), (x + 1, y + 1) }
+                        var block = new[] { (x, y), (x + 1, y), (x, y + 1), (x + 1, y + 1) }
                             .Where(c => field[c.Item1, c.Item2].ClueValue <= 0).ToList();
 
-                        if (candidates.Count == 0) continue;
+                        if (block.Count == 0) continue;
 
+                        var adjacentToIsland = block
+                            .Where(c => HasAdjacentIsland(field, size, c.Item1, c.Item2))
+                            .ToList();
+
+                        var candidates = adjacentToIsland.Count > 0 ? adjacentToIsland : block;
                         var (fx, fy) = candidates[_rng.Next(candidates.Count)];
+
                         field[fx, fy].IsBlack = false;
-                        AssignToNearestIsland(field, size, fx, fy);
+
+                        if (!AssignToNearestIsland(field, size, fx, fy, maxIslandSize))
+                        {
+                            field[fx, fy].IsBlack = true;
+
+                            bool assigned = false;
+                            foreach (var (cx, cy) in block.Where(c => c != (fx, fy)))
+                            {
+                                field[cx, cy].IsBlack = false;
+                                if (AssignToNearestIsland(field, size, cx, cy, maxIslandSize))
+                                {
+                                    assigned = true;
+                                    break;
+                                }
+                                field[cx, cy].IsBlack = true;
+                            }
+
+                            if (!assigned) return false;
+                        }
+
                         changed = true;
                     }
             }
+
+            return maxPasses > 0;
         }
 
-        private void AssignToNearestIsland(NurikabeCell[,] field, int size, int x, int y)
+        private bool HasAdjacentIsland(NurikabeCell[,] field, int size, int x, int y)
         {
             foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
             {
                 if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
                 if (!field[nx, ny].IsBlack && field[nx, ny].IslandId >= 0)
-                {
-                    field[x, y].IslandId = field[nx, ny].IslandId;
-
-                    int islandId = field[x, y].IslandId;
-                    int newSize = 0;
-                    (int cx, int cy) = (0, 0);
-                    for (int ix = 0; ix < size; ix++)
-                        for (int iy = 0; iy < size; iy++)
-                            if (field[ix, iy].IslandId == islandId)
-                            {
-                                newSize++;
-                                if (field[ix, iy].ClueValue > 0) { cx = ix; cy = iy; }
-                            }
-                    field[cx, cy].ClueValue = newSize;
-                    return;
-                }
+                    return true;
             }
+            return false;
         }
 
-        private void FinalizeForPlayer(NurikabeCell[,] field, int size)
+        private bool AssignToNearestIsland(NurikabeCell[,] field, int size, int x, int y, int maxIslandSize = 6)
         {
+            var adjacentIslands = new List<int>();
+            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
+            {
+                if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
+                if (!field[nx, ny].IsBlack && field[nx, ny].IslandId >= 0)
+                {
+                    int id = field[nx, ny].IslandId;
+                    if (!adjacentIslands.Contains(id))
+                        adjacentIslands.Add(id);
+                }
+            }
+
+            foreach (int targetId in adjacentIslands)
+            {
+                if (!WouldCauseIslandTouch(field, size, x, y, targetId)
+                    && GetIslandSize(field, size, targetId) < maxIslandSize)
+                {
+                    field[x, y].IslandId = targetId;
+                    UpdateClueValue(field, size, targetId);
+                    return true;
+                }
+            }
+
+            if (!WouldCauseIslandTouchAny(field, size, x, y))
+            {
+                int newId = GetNextIslandId(field, size);
+                field[x, y].IslandId = newId;
+                field[x, y].ClueValue = 1;
+                field[x, y].IsLocked = true;
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool WouldCauseIslandTouch(NurikabeCell[,] field, int size, int x, int y, int islandId)
+        {
+            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
+            {
+                if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
+                var nb = field[nx, ny];
+                if (!nb.IsBlack && nb.IslandId >= 0 && nb.IslandId != islandId)
+                    return true;
+            }
+            return false;
+        }
+
+        private bool WouldCauseIslandTouchAny(NurikabeCell[,] field, int size, int x, int y)
+        {
+            foreach (var (nx, ny) in GridManager.GetNeighbors(x, y))
+            {
+                if (!GridManager.IsInBounds(nx, ny, size, size)) continue;
+                var nb = field[nx, ny];
+                if (!nb.IsBlack && nb.IslandId >= 0)
+                    return true;
+            }
+            return false;
+        }
+
+        private int GetNextIslandId(NurikabeCell[,] field, int size)
+        {
+            int maxId = -1;
+            for (int ix = 0; ix < size; ix++)
+                for (int iy = 0; iy < size; iy++)
+                    if (field[ix, iy].IslandId > maxId)
+                        maxId = field[ix, iy].IslandId;
+            return maxId + 1;
+        }
+
+        private int GetIslandSize(NurikabeCell[,] field, int size, int islandId)
+        {
+            int count = 0;
+            for (int ix = 0; ix < size; ix++)
+                for (int iy = 0; iy < size; iy++)
+                    if (field[ix, iy].IslandId == islandId)
+                        count++;
+            return count;
+        }
+
+        private void UpdateClueValue(NurikabeCell[,] field, int size, int islandId)
+        {
+            int newSize = 0;
+            (int cx, int cy) = (0, 0);
+            for (int ix = 0; ix < size; ix++)
+                for (int iy = 0; iy < size; iy++)
+                    if (field[ix, iy].IslandId == islandId)
+                    {
+                        newSize++;
+                        if (field[ix, iy].ClueValue > 0) { cx = ix; cy = iy; }
+                    }
+            field[cx, cy].ClueValue = newSize;
+        }
+
+        private NurikabeCell[,] BuildEmergencyPuzzle(int size)
+        {
+            var field = new NurikabeCell[size, size];
             for (int x = 0; x < size; x++)
                 for (int y = 0; y < size; y++)
-                {
-                    if (!field[x, y].IsLocked)
-                    {
-                        field[x, y].IsBlack = false;
-                        field[x, y].IslandId = -1;
-                    }
-                }
+                    field[x, y] = new NurikabeCell { X = x, Y = y, IsBlack = true };
+
+            int id = 0;
+            int islandSize = 0;
+            for (int i = 0; i < Math.Min(3, size); i++)
+            {
+                field[0, i].IsBlack = false;
+                field[0, i].IslandId = id;
+                islandSize++;
+            }
+            for (int i = 1; i < Math.Min(3, size); i++)
+            {
+                field[i, 0].IsBlack = false;
+                field[i, 0].IslandId = id;
+                islandSize++;
+            }
+            field[0, 0].ClueValue = islandSize;
+            field[0, 0].IsLocked = true;
+
+            id = 1;
+            islandSize = 0;
+            for (int i = size - 1; i >= Math.Max(size - 3, 0); i--)
+            {
+                field[size - 1, i].IsBlack = false;
+                field[size - 1, i].IslandId = id;
+                islandSize++;
+            }
+            for (int i = size - 2; i >= Math.Max(size - 3, 0); i--)
+            {
+                field[i, size - 1].IsBlack = false;
+                field[i, size - 1].IslandId = id;
+                islandSize++;
+            }
+            field[size - 1, size - 1].ClueValue = islandSize;
+            field[size - 1, size - 1].IsLocked = true;
+
+            FixTwoByTwo(field, size);
+
+            return StripForPlayer(field, size);
         }
 
         private NurikabeCell[,] CloneField(NurikabeCell[,] src, int size)

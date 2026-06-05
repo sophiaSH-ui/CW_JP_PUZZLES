@@ -8,3 +8,6 @@ obj/
 *.suo
 *.userosscache
 *.sln.docstates
+
+# Class Diagrams
+*.cd
