@@ -13,16 +13,22 @@ namespace CW_JP_PUZZLES.Data
     {
         public static void SaveToFile<T>(T data, string filePath)
         {
-            var dir = Path.GetDirectoryName(filePath);
-            if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+            try
             {
-                Directory.CreateDirectory(dir);
-            }
+                var dir = Path.GetDirectoryName(filePath);
+                if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
 
-            XmlSerializer serializer = new XmlSerializer(typeof(T));
-            using (StreamWriter writer = new StreamWriter(filePath))
+                XmlSerializer serializer = new XmlSerializer(typeof(T));
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    serializer.Serialize(writer, data);
+                }
+            }
+            catch (Exception ex) when (ex is UnauthorizedAccessException || ex is IOException)
             {
-                serializer.Serialize(writer, data);
             }
         }
         public static T LoadFromFile<T>(string filePath) where T : new()
