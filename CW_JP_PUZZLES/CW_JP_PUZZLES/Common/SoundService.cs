@@ -98,6 +98,7 @@ namespace CW_JP_PUZZLES.Common
             _sfxPlayer.Play();
         }
 
+        public void SetSfxVolume(float volume) => _sfxVolume = Math.Clamp(volume, 0f, 1f);
         public void SetSfxEnabled(bool enabled) => _isSfxEnabled = enabled;
         public void SetMusicEnabled(bool enabled)
         {

@@ -52,7 +52,11 @@ namespace CW_JP_PUZZLES.UI.ViewModels
         public float SfxVolume
         {
             get => _sfxVolume;
-            set => SetField(ref _sfxVolume, value);
+            set
+            {
+                SetField(ref _sfxVolume, value);
+                SoundService.Instance.SetSfxVolume(value);
+            }
         }
 
         public ICommand SaveCommand { get; }
@@ -68,7 +72,17 @@ namespace CW_JP_PUZZLES.UI.ViewModels
             _musicVolume = current.MusicVolume;
             _sfxVolume = current.SfxVolume;
 
-            SaveCommand = new RelayCommand(() => { });
+            SaveCommand = new RelayCommand(() =>
+            {
+                SoundService.Instance.PlaySfx(SoundEffect.Click);
+                _onSave(new Settings
+                {
+                    IsMusicEnabled = IsMusicEnabled,
+                    IsSfxEnabled = IsSfxEnabled,
+                    MusicVolume = MusicVolume,
+                    SfxVolume = SfxVolume
+                });
+            });
 
             BackCommand = new RelayCommand(() =>
             {
